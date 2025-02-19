@@ -451,8 +451,7 @@ Task 2: Create groups by using PowerShell
 
 Task 3: Review licenses and modify company branding
 
-1.  In the Microsoft Entra admin center, in the Navigation pane, expand
-    **Identity**, then expand **Billing** and select **Licenses**.
+1.  In the Microsoft admin center, in the Navigation pane, expand **Billing** and select **Licenses** or navigate to the following url.
 
 >   #
         https://admin.microsoft.com/Adminportal/Home?referrer=entra#/licenses
