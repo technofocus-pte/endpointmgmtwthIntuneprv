@@ -173,14 +173,16 @@ Task 2: Create users by using PowerShell
     !\![**Y**](urn:gd:lg:a:send-vm-keys)!!  at the NuGet and repository
     messages:
 
-> !!**Install-Module MSOnline**!!
+>   #
+        Install-Module MSOnline
 >
 > ![](./media/image15.png)
 
 3.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**:
 
-> !!**Connect-MsolService**!!
+>   #
+        Connect-MsolService**!!
 >
 > ![A screenshot of a computer Description automatically
 > generated](./media/image16.png)
@@ -198,11 +200,12 @@ Task 2: Create users by using PowerShell
 > details then copy and paste the command in Windows PowerShell, if
 > required to ensure the tenant information is correct
 >
-> !!**New-MsolUser -UserPrincipalName
-> cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"
-> -FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
-> -ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep"
-> -Department "Sales"**!!
+>   #
+        New-MsolUser -UserPrincipalName
+        cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"
+        FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
+        ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep"
+        Department "Sales"**!!
 >
 > ![A screenshot of a computer screen Description automatically
 > generated](./media/image17.png)
@@ -211,17 +214,20 @@ Task 2: Create users by using PowerShell
     reset the passwords of the Alew Wilber, Allan Deyoung and Joni
     Sherman
 
-> !!**Get-MsolUser | Where-Object DisplayName -EQ "Alex Wilber" |
-> Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
-> $false**!!
->
-> !!**Get-MsolUser | Where-Object DisplayName -EQ “Allan Deyoung” |
-> Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
-> $false**!!
->
-> !!**Get-MsolUser | Where-Object DisplayName -EQ "Joni Sherman" |
-> Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
-> $false**!!
+>   #  
+        Get-MsolUser | Where-Object DisplayName -EQ "Alex Wilber" |
+        Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
+        $false
+>   #
+    
+        Get-MsolUser | Where-Object DisplayName -EQ “Allan Deyoung” |
+        Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
+        $false
+>   #
+    
+        Get-MsolUser | Where-Object DisplayName -EQ "Joni Sherman" |
+        Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
+        $false
 >
 > ![A computer screen shot of a program Description automatically
 > generated](./media/image18.png)
@@ -229,7 +235,8 @@ Task 2: Create users by using PowerShell
 7.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**:
 
-> !!**Get-MsolUser**!!
+>   #
+        Get-MsolUser
 
 8.  Verify that the list of users from your tenant is displayed. Also
     take note of which users have a license assigned. Any user with
@@ -386,8 +393,9 @@ Task 2: Create groups by using PowerShell
 2.  In the **Windows PowerShell** window, type the following code to
     create a new group, and then press **Enter**:
 
-> !!**New-MsolGroup -DisplayName "Contoso_Sales" -Description "Contoso
-> Sales team users"**!!
+>   #
+        New-MsolGroup -DisplayName "Contoso_Sales" -Description "Contoso
+        Sales team users"
 >
 > ![A screenshot of a computer Description automatically
 > generated](./media/image34.png)
@@ -395,7 +403,8 @@ Task 2: Create groups by using PowerShell
 3.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**:
 
-> !!**Get-MsolGroup**!!
+>   #
+        Get-MsolGroup
 >
 > ![A screenshot of a computer screen Description automatically
 > generated](./media/image35.png)
@@ -409,25 +418,29 @@ Task 2: Create groups by using PowerShell
     define a variable as the Contoso_Sales group, and then
     press **Enter**:
 
-> !!**$group = Get-MsolGroup | Where-Object {$\_.DisplayName -eq
-> "Contoso_Sales"}**!!
+>   #
+        $group = Get-MsolGroup | Where-Object {$\_.DisplayName -eq
+        "Contoso_Sales"}
 
 6.  In the **Windows PowerShell** window, type the following code to
     define another variable as the user, and then press **Enter**:
 
-> !!**$user = Get-MsolUser | Where-Object {$\_.DisplayName -eq "Cody
-> Godinez"}**!!
+>   #
+        $user = Get-MsolUser | Where-Object {$\_.DisplayName -eq "Cody
+        Godinez"}
 
 7.  In the **Windows PowerShell** window, type the following code to add
     Cody to Contoso_Sales using set variables, and then press **Enter**:
 
-> !!**Add-MsolGroupMember -GroupObjectId $group.ObjectId
-> -GroupMemberType "User" -GroupMemberObjectId $user.ObjectId**!!
+>   #
+        Add-MsolGroupMember -GroupObjectId $group.ObjectId
+        -GroupMemberType "User" -GroupMemberObjectId $user.ObjectId
 
 8.  In the **Windows PowerShell** window, type the following code, and
     then press **Enter**:
 
-> !! **Get-MsolGroupMember -GroupObjectId $group.ObjectId**!!
+>   #
+            Get-MsolGroupMember -GroupObjectId $group.ObjectId
 
 9.  Verify that you see **Cody Godinez** in the command output result.
 
@@ -441,7 +454,8 @@ Task 3: Review licenses and modify company branding
 1.  In the Microsoft Entra admin center, in the Navigation pane, expand
     **Identity**, then expand **Billing** and select **Licenses**.
 
-> https://admin.microsoft.com/Adminportal/Home?referrer=entra#/licenses
+>   #
+        https://admin.microsoft.com/Adminportal/Home?referrer=entra#/licenses
 >
 > ![](./media/image38.png)
 
