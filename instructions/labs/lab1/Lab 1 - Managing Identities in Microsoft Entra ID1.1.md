@@ -33,8 +33,7 @@ Task 1: Create users by using the Microsoft Entra admin center
 > ![Screenshot](./media/image1.png)
 
 2.  Open the **Microsoft Edge browser** and navigate to 
-
-> !\![**https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/**](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/)!!
+#              https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/**](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/
 
 3.  At the Sign-in prompt, enter the **Office 365 Tenant credentials**
     from the Home tab of the Lab interface.
@@ -68,13 +67,18 @@ Task 1: Create users by using the Microsoft Entra admin center
 6.  On the **New User** page, ensure that **Create user** is selected,
     enter the following:
 
-    - User principal name: !\![**ereeve**](urn:gd:lg:a:send-vm-keys)!!
+    - User principal name: 
+   #    ereeve
 
-    - Display Name: !\![**Edmund Reeve**](urn:gd:lg:a:send-vm-keys)!!
+   - Display Name: 
+  #
+    Edmund Reeve
 
-    - Uncheck **Auto-generate password.**
+   - Uncheck **Auto-generate password.**
 
-    - Password **–** !!**P@55w.rd1234**!!
+   - Password 
+ #
+        P@55w.rd1234
 
 > ![A screenshot of a computer Description automatically
 > generated](./media/image6.png)
@@ -82,9 +86,9 @@ Task 1: Create users by using the Microsoft Entra admin center
 7.  On the **Properties** tab, provide the below information and then
     click on **Next Assignments.**
 
-    - **Job title**, enter !\![**HR Rep**](urn:gd:lg:a:send-vm-keys)!!
+    - **Job title**, enter [**HR Rep**]
 
-    - **Department**, enter  !!**H[R](urn:gd:lg:a:send-vm-keys)**!!
+    - **Department**, enter  **HR**
 
     - **Usage location - United States**
 
@@ -105,19 +109,24 @@ Task 1: Create users by using the Microsoft Entra admin center
 10. Similarly create the user account for Miranda Snider with the below
     details.
 
-    - User principal name:  !\![**msnider**](urn:gd:lg:a:send-vm-keys)!!
+    - User principal name:  
+    #        msnider
 
-    - Display Name: !! [**Miranda Snider**](urn:gd:lg:a:send-vm-keys)!!
+    - Display Name: 
+    #        Miranda Snider
 
     - Uncheck **Auto-generate password.**
 
-    - Password **–** !!**P@55w.rd1234**!!
+    - Password 
+    #                           P@55w.rd1234
 
-    - Job title - !!**Helpdesk Manager**!!
+    - Job title - 
+    #        Helpdesk Manager
 
-    - Department **-** !!**Operations**!!
-
-    - Usage location **- United States**
+    - Department 
+   #    Operations
+  
+  - Usage location **- United States**
 
 11. Select the user account of **Allan Deyoung** and click on **Edit
     properties** and update the Job information with the below details
