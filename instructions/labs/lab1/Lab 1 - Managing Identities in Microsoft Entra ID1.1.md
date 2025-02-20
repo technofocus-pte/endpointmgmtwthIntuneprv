@@ -11,10 +11,7 @@ Exercise 1: Creating users in Microsoft Entra ID
 **Scenario**
 
 You need to create user accounts in Microsoft Entra ID for some new
-employees that will start next week. New users are listed in the
-following table:
-
-[TABLE]
+employees that will start next week. 
 
 **Note**: For location use either your local region or United States.
 
@@ -24,65 +21,54 @@ efficient method of adding a large number of new users. You've decided
 to create a PowerShell script and test it out when you create Cody
 Godinez's account.
 
-Task 1: Create users by using the Microsoft Entra admin center
+**Task 1: Create users by using the Microsoft Entra admin center**
 
 1.  On SEA-SVR1, sign in
     as Contoso\Administrator with the
     password of !!Pa55w.rd!!.
+    ![Screenshot](./media/image1.png)
 
-> ![Screenshot](./media/image1.png)
-
-2.  Open the **Microsoft Edge browser** and navigate to         
-  !!https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/**](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/!!
+2.  Open the **Microsoft Edge browser** and navigate to             
+    !!https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/**](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/!!
 
 3.  At the Sign-in prompt, enter the **Office 365 Tenant credentials**
     from the Home tab of the Lab interface.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image2.png)
+    ![A screenshot of a computer Description automatically generated](./media/image2.png)
 
-**Note** – If promoted for MFA, complete the MFA sign in process.
+    **Note** – If promoted for MFA, complete the MFA sign in process.
 
 4.  In the **Microsoft Entra admin center**, expand **Identity** and in
     the navigation pane, select **Users**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image3.png)
->
-> Take note of the users that already exist as members of the Microsoft
-> Entra ID domain. Each user is enabled as indicated on the **Account
-> enabled** column. The **On-premises synced** **enabled** column
-> states **No** for all current users. This indicates that each user was
-> created directly in Microsoft Entra ID and not synchronized from an
-> on-premises directory service.
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image4.png)
+    ![A screenshot of a computer Description automatically generated](./media/image3.png)
+
+     Take note of the users that already exist as members of the Microsoft
+     Entra ID domain. Each user is enabled as indicated on the **Account
+     enabled** column. The **On-premises synced** **enabled** column
+     states **No** for all current users. This indicates that each user was
+     created directly in Microsoft Entra ID and not synchronized from an
+     on-premises directory service.
+
+     ![A screenshot of a computer Description automatically generated](./media/image4.png)
 
 5.  On the **Users | All users** page, select **New user** then
     select **Create new user**.
 
-> ![](./media/image5.png)
+     ![](./media/image5.png)
 
 6.  On the **New User** page, ensure that **Create user** is selected,
     enter the following:
 
-    - User principal name: 
-   #
-    ereeve
+    - User principal name: !!ereeve!!
 
-   - Display Name: 
-  #
-    Edmund Reeve
+   - Display Name: !!Edmund Reeve!!
 
    - Uncheck **Auto-generate password.**
 
-   - Password 
- #
-        P@55w.rd1234
+   - Password !!P@55w.rd1234!!
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image6.png)
+    ![A screenshot of a computer Description automatically generated](./media/image6.png)
 
 7.  On the **Properties** tab, provide the below information and then
     click on **Next Assignments.**
