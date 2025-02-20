@@ -180,9 +180,8 @@ Godinez's account.
         ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep"
         Department "Sales"```
  
->
-> ![A screenshot of a computer screen Description automatically
-> generated](./media/image17.png)
+
+    ![A screenshot of a computer screen Description automatically generated](./media/image17.png)
 
 6.  In the **Windows PowerShell** window, type the following command to
     reset the passwords of the Alew Wilber, Allan Deyoung and Joni
