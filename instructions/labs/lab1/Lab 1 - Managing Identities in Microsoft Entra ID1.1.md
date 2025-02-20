@@ -26,14 +26,14 @@ Godinez's account.
 
 Task 1: Create users by using the Microsoft Entra admin center
 
-1.  On [***SEA-SVR1***](urn:gd:lg:a:select-vm), sign in
-    as [**Contoso\Administrator**](urn:gd:lg:a:send-vm-keys) with the
-    password of !\![**Pa55w.rd**](urn:gd:lg:a:send-vm-keys)!!.
+1.  On SEA-SVR1, sign in
+    as Contoso\Administrator with the
+    password of !!Pa55w.rd!!.
 
 > ![Screenshot](./media/image1.png)
 
-2.  Open the **Microsoft Edge browser** and navigate to 
-#              https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/**](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/
+2.  Open the **Microsoft Edge browser** and navigate to         
+  !!https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/**](https://entra.microsoft.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers/menuId/!!
 
 3.  At the Sign-in prompt, enter the **Office 365 Tenant credentials**
     from the Home tab of the Lab interface.
@@ -68,7 +68,8 @@ Task 1: Create users by using the Microsoft Entra admin center
     enter the following:
 
     - User principal name: 
-   #    ereeve
+   #
+    ereeve
 
    - Display Name: 
   #
@@ -110,21 +111,26 @@ Task 1: Create users by using the Microsoft Entra admin center
     details.
 
     - User principal name:  
-    #        msnider
+    #
+        msnider
 
     - Display Name: 
-    #        Miranda Snider
+    #
+        Miranda Snider
 
     - Uncheck **Auto-generate password.**
 
     - Password 
-    #                           P@55w.rd1234
+    #                  
+         P@55w.rd1234
 
     - Job title - 
-    #        Helpdesk Manager
+    #
+        Helpdesk Manager
 
     - Department 
-   #    Operations
+   #
+    Operations
   
   - Usage location **- United States**
 
