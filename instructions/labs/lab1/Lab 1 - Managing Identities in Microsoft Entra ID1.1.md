@@ -79,46 +79,34 @@ Godinez's account.
 
     - **Usage location - United States**
 
-> ![](./media/image7.png)
+    ![](./media/image7.png)
 
 8.  On the Assignments tab, click on **Review + create** button.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image8.png)
+    ![A screenshot of a computer Description automatically generated](./media/image8.png)
 
 9.  Verify the details and then click on the **Create** button.
 
-> ![](./media/image9.png)
->
-> ![A close-up of a computer screen Description automatically
-> generated](./media/image10.png)
+    ![](./media/image9.png)
+
+    ![A close-up of a computer screen Description automatically generated](./media/image10.png)
 
 10. Similarly create the user account for Miranda Snider with the below
     details.
 
-    - User principal name:  
-    #
-        msnider
+    - User principal name: !!msnider!!
 
-    - Display Name: 
-    #
-        Miranda Snider
+    - Display Name: !!Miranda Snider!!
 
     - Uncheck **Auto-generate password.**
 
-    - Password 
-    #                  
-         P@55w.rd1234
+    - Password: !!P@55w.rd1234!!
 
-    - Job title - 
-    #
-        Helpdesk Manager
+    - Job title - !!Helpdesk Manager!!
 
-    - Department 
-   #
-    Operations
+    - Department: !!Operations!!
   
-  - Usage location **- United States**
+    - Usage location: **United States**
 
 11. Select the user account of **Allan Deyoung** and click on **Edit
     properties** and update the Job information with the below details
@@ -128,76 +116,70 @@ Godinez's account.
 
     -  Department - !\![**IT**](urn:gd:lg:a:send-vm-keys)!!
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image11.png)
+    ![A screenshot of a computer Description automatically generated](./media/image11.png)
 
 12. Select the user account of **Joni Sherman** and click on **Edit
     properties** and update the Job information with the below details
     and then click on the **Save** button.
 
-    - Job title- !!**ParaLegal**!!
+    - Job title- !!ParaLegal!!
 
-    -  Department - !!**Legal**!!
+    -  Department - !!Legal!!
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image12.png)
+   ![A screenshot of a computer Description automatically
+   generated](./media/image12.png)
 
 13. Select the user account of **Alex Wilber** and click on **Edit
     properties** and update the Job information with the below details
     and then click on the **Save** button.
 
-    - Job title - !!**Marketing Assistant**!!
+    - Job title - !!Marketing Assistant!!
 
-    -  Department – !\![**Marketing**](urn:gd:lg:a:send-vm-keys)!!
+    -  Department – !!Marketing!!
 
-> ![](./media/image13.png)
+    ![](./media/image13.png)
 
-Task 2: Create users by using PowerShell
+**Task 2: Create users by using PowerShell**
 
-1.  On [***SEA-SVR1***](urn:gd:lg:a:select-vm), on the taskbar,
+1.  On **SEA-SVR1**, on the taskbar,
     right-click **Start**, and then select **Windows PowerShell
     (Admin)**.
 
-> ![](./media/image14.png)
+    ![](./media/image14.png)
 
 2.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**. If prompted, enter 
     !\![**Y**](urn:gd:lg:a:send-vm-keys)!!  at the NuGet and repository
     messages:
 
->   #
-        Install-Module MSOnline
->
-> ![](./media/image15.png)
+    !!Install-Module MSOnline!!
+
+    ![](./media/image15.png)
 
 3.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**:
 
->   #
-        Connect-MsolService**!!
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image16.png)
+    !!Connect-MsolService!!
+    ![A screenshot of a computer Description automatically generated](./media/image16.png)
 
 4.  In the **Sign in to your account** dialog box, sign in using the
     Office 365 Tenant credentials from the Home tab.
-
-> **Note – If you had been prompted to change the Tenant admin
-> credentials password, ensure to provide the updated password.**
+    
+    **Note – If you had been prompted to change the Tenant admin credentials password, ensure to provide the updated password.**
 
 5.  In the **Windows PowerShell** window, type the following code to
     create a new user, and then press **Enter**.
 
-> Note – paste the below command in notepad and substitute the Tenant
-> details then copy and paste the command in Windows PowerShell, if
-> required to ensure the tenant information is correct
->
->   #
-        New-MsolUser -UserPrincipalName
+     Note – paste the below command in notepad and substitute the Tenant
+     details then copy and paste the command in Windows PowerShell, if
+     required to ensure the tenant information is correct
+
+        !!New-MsolUser -UserPrincipalName
         cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"
         FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
         ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep"
-        Department "Sales"**!!
+        Department "Sales"!!
+ 
 >
 > ![A screenshot of a computer screen Description automatically
 > generated](./media/image17.png)
