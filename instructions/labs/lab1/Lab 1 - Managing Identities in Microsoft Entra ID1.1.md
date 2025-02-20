@@ -529,8 +529,7 @@ Alex Wilber and Allan Deyoung in case they aren’t assigned the licenses.
 
 12. Select Contoso_Mangers from the list and click on **Assign.**
 
-13. In the Microsoft Entra admin center, in the Navigation pane, expand
-    **Identity**, then expand **Billing** and select **Licenses**.
+13. In the Microsoft admin center, in the Navigation pane, expand **Billing** and select **Licenses**.
 
 > ![A screenshot of a computer Description automatically
 > generated](./media/image51.png)![A screenshot of a computer
