@@ -73,9 +73,9 @@ Godinez's account.
 7.  On the **Properties** tab, provide the below information and then
     click on **Next Assignments.**
 
-    - **Job title**, enter [**HR Rep**]
+    - **Job title**, enter !!HR Rep!!
 
-    - **Department**, enter  **HR**
+    - **Department**, enter  !!HR!!
 
     - **Usage location - United States**
 
@@ -112,9 +112,8 @@ Godinez's account.
     properties** and update the Job information with the below details
     and then click on the **Save** button.
 
-    - Job title- !\![**IT Admin**](urn:gd:lg:a:send-vm-keys)!!
-
-    -  Department - !\![**IT**](urn:gd:lg:a:send-vm-keys)!!
+    - Job title- !!IT Admin!!
+    -  Department - !!IT!!
 
     ![A screenshot of a computer Description automatically generated](./media/image11.png)
 
