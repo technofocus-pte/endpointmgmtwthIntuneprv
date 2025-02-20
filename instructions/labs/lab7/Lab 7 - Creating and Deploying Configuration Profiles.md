@@ -158,7 +158,7 @@ requirements**
 
     - Profile type: **Templates**
 
-    - Template name: !!!!
+    - Template name: !!Device restrictions!!
 
     ![A screenshot of a profile Description automatically
     generated](./media/image17.png)
