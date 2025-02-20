@@ -1,4 +1,4 @@
-Lab 03: Configuring and managing Microsoft Entra ID Join
+    Lab 03: Configuring and managing Microsoft Entra ID Join
 
 **Summary**
 
@@ -576,7 +576,7 @@ complete.
 ![Text Description automatically generated with medium
 confidence](./media/image69.png)
 
-2.  In the **Microsoft Azure Active Directory Connect** window,
+2.  In the **Welcome to Microsoft Entra connect Connect** window,
     select **Configure**.
 
 ![](./media/image70.png)
