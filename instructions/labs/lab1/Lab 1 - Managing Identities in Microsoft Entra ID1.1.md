@@ -173,11 +173,12 @@ Godinez's account.
      details then copy and paste the command in Windows PowerShell, if
      required to ensure the tenant information is correct
 
-        !!```New-MsolUser -UserPrincipalName
+    #
+        ```New-MsolUser -UserPrincipalName
         cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"
         FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
         ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep"
-        Department "Sales"```!!
+        Department "Sales"```
  
 >
 > ![A screenshot of a computer screen Description automatically
