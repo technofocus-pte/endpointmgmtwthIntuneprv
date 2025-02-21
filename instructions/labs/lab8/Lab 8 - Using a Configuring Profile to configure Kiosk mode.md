@@ -34,80 +34,80 @@ ensure that the kiosk is configured as follows:
 **Task 1: Enroll SEA-WS2 to Microsoft Intune**
 
 1.  Sign in
-    to [*SEA-WS2*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10) as **Admin** with
-    the password of !!**Pa55w.rd**!!.
+    to SEA-WS2 as **Admin** with
+    the password of !!Pa55w.rd!!.
 
 2.  On the taskbar, select **Start** and then select **Settings**.
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 3.  In the **Settings** window, select **Accounts**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image2.png)
 
 4.  On the Accounts page, select **Access work or school**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image3.png)
 
 5.  In the **Access work or school** page, select **Connect**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image4.png)
 
 6.  In the **Microsoft account** window, select **Join this device to
     Microsoft Entra ID**.
 
-![A screenshot of a computer screen Description automatically
-generated](./media/image5.png)
+    ![A screenshot of a computer screen Description automatically
+    generated](./media/image5.png)
 
 7.  On the **Sign in** page,
     type !!**AllanD@M365xXXXXXX.onmicrosoft.com**!! and then
     select **Next**.
 
-![](./media/image6.png)
+    ![](./media/image6.png)
 
 8.  On the **Enter password** page, enter the tenant password:
     !!**P@55w.rd1234**!! and then select **Sign in**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image7.png)
 
 9.  On the **Make sure this is your organization** dialog box,
     select **Join**.
 
-![A screenshot of a computer error Description automatically
-generated](./media/image8.png)
+    ![A screenshot of a computer error Description automatically
+    generated](./media/image8.png)
 
 10. On the **You're all set!** page, read the information and then
     select **Done**.
 
-![A screenshot of a computer screen Description automatically
-generated](./media/image9.png)
+    ![A screenshot of a computer screen Description automatically
+    generated](./media/image9.png)
 
 11. In the **Access work or school** section, verify that **Connected to
     Contoso's Azure AD** displays.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image10.png)
 
 12. Select **Connected to Contoso's Azure AD** and then select **Info**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image11.png)
 
 13. Scroll down, and then select **Sync**. This will force a Device sync
     with Intune.
 
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image12.png)
 
 14. Close the **Settings** window.
 
 **Task 2: Create the Contoso Kiosk device group**
 
-1.  On [*SEA-SVR1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10),
+1.  On SEA-SVR1,
     switch to **Microsoft Entra admin center** tab. Navigate and select
     **Groups,** then click on **All groups**.
 
