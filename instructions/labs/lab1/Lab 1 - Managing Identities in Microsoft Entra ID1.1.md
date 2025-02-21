@@ -186,11 +186,11 @@ Godinez's account.
     reset the passwords of the Alew Wilber, Allan Deyoung and Joni
     Sherman
 
->   #  
-        Get-MsolUser | Where-Object DisplayName -EQ "Alex Wilber" |
-        Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
-        $false
->   #
+``` 
+   Get-MsolUser | Where-Object DisplayName -EQ "Alex Wilber" |
+   Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
+   $false
+```
     
         Get-MsolUser | Where-Object DisplayName -EQ “Allan Deyoung” |
         Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
