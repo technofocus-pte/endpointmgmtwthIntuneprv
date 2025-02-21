@@ -145,7 +145,7 @@ Task 1: Add Microsoft Remote Desktop to Microsoft Intune
 
 **Task 3: Install an app from the Company Portal Website**
 
-1.  Sign in to  as **Cindy White** using her credentials
+1.  Sign in to SEA-WS1  as **Cindy White** using her credentials
     !!**Cindy@M365xXXXXXX.onmicrosoft.com**!! with Password
     !!**P@55w.rd1234**!! or with the PIN !!**102938**!!
 
