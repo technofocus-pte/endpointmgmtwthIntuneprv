@@ -18,7 +18,7 @@ identify which settings can be successfully migrated into Intune.
 
 **Task 1: Export the Windows Client Policy GPO to an XML file**
 
-1.  Login to  with the provided credentials search bar, type !!**Server
+1.  Login to SEA-SVR1 with the provided credentials search bar, type !!**Server
     Manager**!! and then select it.
 
     ![](./media/image1.png)
