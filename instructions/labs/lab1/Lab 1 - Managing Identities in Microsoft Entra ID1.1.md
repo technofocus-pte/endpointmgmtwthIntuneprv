@@ -192,15 +192,16 @@ Godinez's account.
    $false
 ```
     
-        Get-MsolUser | Where-Object DisplayName -EQ “Allan Deyoung” |
-        Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
-        $false
->   #
-    
+  ``` 
+  Get-MsolUser | Where-Object DisplayName -EQ “Allan Deyoung” |
+  Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
+  $false
+  ``` 
+    ``` 
         Get-MsolUser | Where-Object DisplayName -EQ "Joni Sherman" |
         Set-MsolUserPassword -NewPassword P@55w.rd1234 -ForceChangePassword
         $false
->
+     ``` 
 > ![A computer screen shot of a program Description automatically
 > generated](./media/image18.png)
 
