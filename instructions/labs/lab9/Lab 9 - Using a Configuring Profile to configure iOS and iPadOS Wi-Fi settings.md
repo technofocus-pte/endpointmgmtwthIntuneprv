@@ -30,7 +30,7 @@ follows:
 
 **Task 1: Create the iOS_iPadOS device group**
 
-1.  Switch to SEA-SVR
+1.  Switch to SEA-SVR1
      In the **Microsoft Entra admin center** window, navigate and select
     **Groups**, then click on **All groups**.
 
@@ -77,10 +77,9 @@ requirements**
     ![A screenshot of a computer Description automatically
     generated](./media/image6.png)
 
-3.  On the **iOS/iPadOS** page, navigate and click on **Configuration
-    profiles**.
+3.  On the **iOS/iPadOS** page, navigate and click on **Configuration**, Under **Manage devices**.
 
-4.  On the **iOS/iPadOS | Configuration profiles** page, in the
+4.  On the **iOS/iPadOS | Configuration** page, in the
     **Policies** tab, click on **+ Create** and select **+ New Policy**.
 
     ![](./media/image7.png)
