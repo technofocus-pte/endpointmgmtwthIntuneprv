@@ -111,41 +111,41 @@ ensure that the kiosk is configured as follows:
     switch to **Microsoft Entra admin center** tab. Navigate and select
     **Groups,** then click on **All groups**.
 
-![](./media/image13.png)
+    ![](./media/image13.png)
 
 2.  On the **Groups | All groups** page, select **New group**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image14.png)
 
 3.  On the **New Group** blade, enter the following information:
 
-- Group type: **Security**
+    - Group type: **Security**
 
-- Group name: !! Contoso Kiosk Devices!!
+    - Group name: !!Contoso Kiosk Devices!!
 
-- Group description: !!All Windows devices configured as a Kiosk!!
+    - Group description: !!All Windows devices configured as a Kiosk!!
 
-- Membership type: **Assigned**
+    - Membership type: **Assigned**
 
 4.  Under **Members**, select **No members selected**.
 
-![](./media/image15.png)
+    ![](./media/image15.png)
 
 5.  On the **Add members** blade, in the **Search** box type **Sea**.
     Select **SEA-WS2** and then choose **Select**.
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
 6.  On the **New Group** blade, select **Create**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image17.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image17.png)
 
 7.  On the **Groups | All groups** blade, refresh the page and verify
     that the **Contoso Kiosk Devices** group is displayed.
 
-![](./media/image18.png)
+    ![](./media/image18.png)
 
 **Task 3: Create a Configuration profile based on scenario
 requirements**
@@ -153,140 +153,140 @@ requirements**
 1.  Go back to Microsoft Intune admin center, select **Devices** from
     the navigation bar.
 
-![A screenshot of a computer Description automatically
-generated](./media/image19.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image19.png)
 
 2.  On the **Devices | Overview** page, select **Windows** as shown in
     the below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image20.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image20.png)
 
 3.  On the **Windows | Windows devices** page, navigate and click on
     **Configuration profiles**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image21.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image21.png)
 
 4.  On the **Windows | Configuration profiles** page, in the
     **Policies** tab, click on **+ Create** and select **+ New Policy**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image22.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image22.png)
 
 5.  In the **Create a profile** blade, select the following options, and
     then select **Create**:
 
-- Platform: **Windows 10 and later**
+    - Platform: **Windows 10 and later**
 
-- Profile type: **Templates**
+    - Profile type: **Templates**
 
-- Template name: !!**Kiosk**!!
+    - Template name: !!**Kiosk**!!
 
-![A screenshot of a computer Description automatically
-generated](./media/image23.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image23.png)
 
 6.  In the **Basics** blade, enter the following information, and then
     select **Next**:
 
-- Name: !!Contoso Kiosk Policy!!
+    - Name: !!Contoso Kiosk Policy!!
 
-- Description: !!Basic settings for Contoso Kiosk Devices.!!
+    - Description: !!Basic settings for Contoso Kiosk Devices.!!
 
-![A screenshot of a computer Description automatically
-generated](./media/image24.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image24.png)
 
 7.  On the **Configuration settings** blade, next to **Select a kiosk
     mode**, select **Single app, full-screen kiosk**.
 
-Additional options display based upon the mode selected.
+    Additional options display based upon the mode selected.
 
 8.  On the **Configuration settings** blade, select the following
     options, and then select **Next**:
 
-- User logon type: **Auto logon (Windows 10, version 1803 and later, or
-  Windows 11)**
+    - User logon type: **Auto logon (Windows 10, version 1803 and later, or
+      Windows 11)**
 
-- Application type: **Add Microsoft Edge browser**
+    - Application type: **Add Microsoft Edge browser**
 
-- Edge Kiosk URL: !! **http://bing.com**!!
+    - Edge Kiosk URL: !! **http://bing.com**!!
 
-- Microsoft Edge kiosk mode type: **Public Browsing (InPrivate)**
+    - Microsoft Edge kiosk mode type: **Public Browsing (InPrivate)**
 
-- Refresh browser after idle time: **5**
+    - Refresh browser after idle time: **5**
 
-- Specify Maintenance Window for App Restarts: **Not configured**
+    - Specify Maintenance Window for App Restarts: **Not configured**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image25.png)
+    > ![A screenshot of a computer Description automatically
+    > generated](./media/image25.png)
 
 9.  On the **Assignments** blade, under **Included groups**,
     select **Add groups**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image26.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image26.png)
 
 10. In the **Select groups to include** window, select !!**Contoso Kiosk
     Devices**!!, and then click **Select**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image27.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image27.png)
 
 11. In the **Assignment** tab, click on the **Next** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image28.png)
 
 12. In the **Applicability Rules** tab, click on the **Next** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image29.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image29.png)
 
 13. In the **Review + create** tab, click on the **Create** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image30.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image30.png)
 
 14. The Configuration profile will be listed.
 
-![A screenshot of a computer Description automatically
-generated](./media/image31.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image31.png)
 
 **Task 4: Verify that the Configuration profile is applied**
 
 1.  Sign in
-    to [*SEA-WS2*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10) as **Admin** with
-    the password of !!**Pa55w.rd**!!.
+    to SEA-WS2 as **Admin** with
+    the password of !!Pa55w.rd!!.
 
 2.  On the taskbar, select **Start** and then select **Settings**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image1.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image1.png)
 
 3.  In the **Settings** window, select **Accounts**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image2.png)
 
 4.  On the Accounts page, select **Access work or school**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image3.png)
 
 5.  Select **Connected to Contoso's Azure AD** and then select **Info**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image11.png)
 
 6.  Scroll down, and then select **Sync**. This will force a Device sync
     with Intune.
 
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+    ![A screenshot of a computer Description automatically
+    generated](./media/image12.png)
 
 7.  Close the **Settings** window.
 
-> ![](./media/image32.png)
+    ![](./media/image32.png)
 
 5.  Restart **SEA-WS2**.
 
