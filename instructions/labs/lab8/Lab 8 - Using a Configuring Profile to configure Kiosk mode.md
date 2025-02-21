@@ -162,8 +162,8 @@ requirements**
     ![A screenshot of a computer Description automatically
     generated](./media/image20.png)
 
-3.  On the **Windows | Windows devices** page, navigate and click on
-    **Configuration profiles**.
+3.  On the **Windows | Manage devices** page, navigate and click on
+    **Configuration**.
 
     ![A screenshot of a computer Description automatically
     generated](./media/image21.png)
@@ -209,7 +209,7 @@ requirements**
 
     - Application type: **Add Microsoft Edge browser**
 
-    - Edge Kiosk URL: !! **http://bing.com**!!
+    - Edge Kiosk URL: !!http://bing.com!!
 
     - Microsoft Edge kiosk mode type: **Public Browsing (InPrivate)**
 
@@ -226,8 +226,8 @@ requirements**
     ![A screenshot of a computer Description automatically
     generated](./media/image26.png)
 
-10. In the **Select groups to include** window, select !!**Contoso Kiosk
-    Devices**!!, and then click **Select**.
+10. In the **Select groups to include** window, select !!Contoso Kiosk
+    Devices!!, and then click **Select**.
 
     ![A screenshot of a computer Description automatically
     generated](./media/image27.png)
