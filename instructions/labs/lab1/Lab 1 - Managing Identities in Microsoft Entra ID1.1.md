@@ -173,15 +173,14 @@ Godinez's account.
      details then copy and paste the command in Windows PowerShell, if
      required to ensure the tenant information is correct
 
-    #
-        ```New-MsolUser -UserPrincipalName
-        cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"
-        FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
-        ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep"
-        Department "Sales"```
+    
+  ```
+  New-MsolUser -UserPrincipalName cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"  FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
+  ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep" Department "Sales"
+ ```
  
 
-    ![A screenshot of a computer screen Description automatically generated](./media/image17.png)
+   ![A screenshot of a computer screen Description automatically generated](./media/image17.png)
 
 6.  In the **Windows PowerShell** window, type the following command to
     reset the passwords of the Alew Wilber, Allan Deyoung and Joni
