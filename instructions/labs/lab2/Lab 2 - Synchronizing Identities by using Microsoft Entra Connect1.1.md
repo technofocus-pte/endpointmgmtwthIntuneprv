@@ -124,7 +124,7 @@ Entra Connect synchronization tool.
 
 12. In the **AD forest account** window, select the **Create New AD
     Account** option, and in the **ENTERPRISE ADMIN USERNAME** field,
-    type Contoso\Administrator, and then
+    type !!Contoso\Administrator!!, and then
     type !!Pa55w.rd!! in
     the **PASSWORD** field. Select **OK**, and then select **Next**.
 
