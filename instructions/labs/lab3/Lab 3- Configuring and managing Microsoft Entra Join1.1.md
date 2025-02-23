@@ -36,7 +36,7 @@ having Joni Sherman join SEA-WS1 to the tenant.
     type [**PowerShell**](urn:gd:lg:a:send-vm-keys) right click on
     PowerShell and select run as administrator.
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 3.  Run the following script on the PowerShell.
 
@@ -77,7 +77,7 @@ Out-Null
 New-ItemProperty -Path
 'HKLM:\SOFTWARE\Microsoft\\NETFramework\v4.0.30319' -Name
 'SchUseStrongCrypto' -Value '1' -PropertyType 'DWord' -Force | Out-Null
-
+```
 **If** (-Not (Test-Path
 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS
 1.2\Server'))
@@ -124,6 +124,7 @@ New-ItemProperty -Path
 
 Write-Host 'TLS 1.2 has been enabled. You must restart the Windows
 Server for the changes to take affect.' -ForegroundColor Cyan
+```
 
 ![](./media/image2.png)
 
