@@ -25,13 +25,13 @@ need to ensure the following:
 
 Task 1: Create an App protection policy for iOS/iPadOS devices
 
-1.  On [***SEA-SVR1***](urn:gd:lg:a:select-vm), if necessary, sign in
-    as [**Contoso\Administrator**](urn:gd:lg:a:send-vm-keys) with the
-    password !\![**Pa55w.rd**](urn:gd:lg:a:send-vm-keys)!!
+1.  On SEA-SVR1, if necessary, sign in
+    as Contoso\Administrator with the
+    password !!Pa55w.rd!!
 
 2.  On the taskbar, select **Microsoft Edge** and navigate to
     **Microsoft Intune admin
-    center** !!**https://intune.microsoft.com**!!  in the address bar,
+    center** !!https://intune.microsoft.com!!  in the address bar,
     and then press **Enter**.
 
 3.  Sign in with the Office 365 Tenant admin credentials from the Home
@@ -39,20 +39,20 @@ Task 1: Create an App protection policy for iOS/iPadOS devices
 
 4.  On the **Microsoft Intune admin center** page, select **Apps**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image1.png)
+     ![A screenshot of a computer Description automatically
+     generated](./media/image1.png)
 
 5.  On the **Apps | Overview** blade, under **Policy**, select **App
     protection policies**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image2.png)
+    ![A screenshot of a computer Description automatically
+     generated](./media/image2.png)
 
 6.  In the details pane, select **+Create policy** and then
     select **iOS/iPadOS**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image3.png)
+     ![A screenshot of a computer Description automatically
+     generated](./media/image3.png)
 
 7.  On the **Basics** tab, configure the following options and
     select **Next**:
@@ -62,8 +62,8 @@ Task 1: Create an App protection policy for iOS/iPadOS devices
     - Description: !\![**Policy to prevent cut/copy and paste from
       Outlook**](urn:gd:lg:a:send-vm-keys)!!
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image4.png)
+     ![A screenshot of a computer Description automatically
+     generated](./media/image4.png)
 
 8.  On the **Apps** tab, click + **Select public apps**.
 
@@ -71,8 +71,8 @@ Task 1: Create an App protection policy for iOS/iPadOS devices
     !!**Outlook**!! Select **Microsoft Outlook** and then click on
     the **Select** button, and then select **Next**.
 
-> ![Screens screenshot of a computer Description automatically
-> generated](./media/image5.png)
+     ![Screens screenshot of a computer Description automatically
+     generated](./media/image5.png)
 
 10. On the **Data protection** tab, configure the following options and
     select **Next**:
@@ -86,9 +86,9 @@ Task 1: Create an App protection policy for iOS/iPadOS devices
     - Restrict cut, copy, and paste between other apps: **Policy managed
       apps**
 
-> Leave all other settings at default
->
-> ![](./media/image6.png)
+    Leave all other settings at default
+
+     ![](./media/image6.png)
 
 11. On the **Access requirements** tab, configure the following options
     and select **Next**:
@@ -97,38 +97,38 @@ Task 1: Create an App protection policy for iOS/iPadOS devices
 
     - Work or school account credentials for access: **Require**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image7.png)
+     ![A screenshot of a computer Description automatically
+     generated](./media/image7.png)
 
 12. On the **Conditional launch** tab, review the settings.
     Select **Next**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image8.png)
->
-> **Note**: Here you can set the sign-in security requirements for your
-> access protection policy. You can select a setting and enter the value
-> that users must meet to sign in to your company app. Make note of the
-> various settings but do not change anything.
+     ![A screenshot of a computer Description automatically
+     generated](./media/image8.png)
+
+     **Note**: Here you can set the sign-in security requirements for your
+     access protection policy. You can select a setting and enter the value
+     that users must meet to sign in to your company app. Make note of the
+     various settings but do not change anything.
 
 13. On the **Assignments** tab, select **Next**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image9.png)
+     ![A screenshot of a computer Description automatically
+     generated](./media/image9.png)
 
 14. On the **Review + create** tab, review the settings and
     select **Create**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image10.png)
+     ![A screenshot of a computer Description automatically
+     generated](./media/image10.png)
 
 15. On the **Apps | App protection policies** blade, in the details
     pane, verify that **Outlook - Developers** is listed.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image11.png)
+     ![A screenshot of a computer Description automatically
+     generated](./media/image11.png)
 
 16. Close Microsoft Edge.
 
-**Results**: After completing this exercise, you will have successfully
-configured an App protection policy for a mobile device.
+    **Results**: After completing this exercise, you will have successfully
+    configured an App protection policy for a mobile device.
