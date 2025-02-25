@@ -1,4 +1,4 @@
-# Practice Lab26 : Managing Update policies for iOS and iPadOS
+# Lab 24 : Managing Update policies for iOS and iPadOS
 
 **Summary**
 
