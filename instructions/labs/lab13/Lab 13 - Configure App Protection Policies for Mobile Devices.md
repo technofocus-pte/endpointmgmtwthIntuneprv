@@ -1,4 +1,4 @@
-Lab13: Configure App Protection Policies for Mobile Devices
+# Lab13: Configure App Protection Policies for Mobile Devices
 
 **Summary**
 
@@ -42,8 +42,7 @@ Task 1: Create an App protection policy for iOS/iPadOS devices
      ![A screenshot of a computer Description automatically
      generated](./media/image1.png)
 
-5.  On the **Apps | Overview** blade, under **Policy**, select **App
-    protection policies**.
+5.  On the **Apps | Overview** blade, under **Manage apps**, select **Protection**.
 
     ![A screenshot of a computer Description automatically
      generated](./media/image2.png)
@@ -57,10 +56,10 @@ Task 1: Create an App protection policy for iOS/iPadOS devices
 7.  On the **Basics** tab, configure the following options and
     select **Next**:
 
-    - Name: !\![**Outlook – Developers**](urn:gd:lg:a:send-vm-keys)!!
+    - Name: !!Outlook – Developers!!
 
-    - Description: !\![**Policy to prevent cut/copy and paste from
-      Outlook**](urn:gd:lg:a:send-vm-keys)!!
+    - Description: !!Policy to prevent cut/copy and paste from
+      Outlook!!
 
      ![A screenshot of a computer Description automatically
      generated](./media/image4.png)
