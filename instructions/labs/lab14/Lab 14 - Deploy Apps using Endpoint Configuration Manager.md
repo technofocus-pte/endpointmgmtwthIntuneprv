@@ -46,8 +46,8 @@ Task 1: Create a device collection
 
     - Name: !!Power BI App Deployment!!
 
-    - Comment: !!Devices targeted to install Power BI
-      Desktop!!
+    - Comment:
+    !!Devices targeted to install Power BI Desktop!!
 
     - Limiting collection: **All Windows 11 Workstations**
 
