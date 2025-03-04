@@ -76,7 +76,7 @@ Task 1: Create a device collection
     > ![A screenshot of a computer Description automatically
     > generated](./media/image8.png)
 
-Task 2: Assign a Device to an existing Collection
+## Task 2: Assign a Device to an existing Collection
 
 1.  In the **Assets and Compliance** workspace, select **Devices**.
 

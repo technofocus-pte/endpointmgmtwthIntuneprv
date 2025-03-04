@@ -34,7 +34,7 @@ Task 1: Configure password writeback
     > ![A screenshot of a computer Description automatically
     > generated](./media/image1.png)
 
-3.  On the **Welcome to Azure AD Connect** page, select **Configure**.
+3.  On the **Welcome to Microsoft Entra Connect Sync** page, select **Configure**.
 
     > ![A screenshot of a computer Description automatically
     > generated](./media/image2.png)
@@ -81,7 +81,7 @@ Task 1: Configure password writeback
 # Task 2: Enable self-service password reset.
 
 1.  On the taskbar select **Microsoft Edge**, navigate to **Microsoft
-    Entra admin center** **https://Entra.Microsoft.com**.
+    Entra admin center** !!https://Entra.Microsoft.com!!
 
 2.  Sign in with **Office 365 Tenant admin** credentials.
 
