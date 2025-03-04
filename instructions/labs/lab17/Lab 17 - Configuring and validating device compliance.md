@@ -1,4 +1,4 @@
-Lab17 - Configuring and validating device compliance
+# Lab17 - Configuring and validating device compliance
 
 **Summary**
 
@@ -40,7 +40,7 @@ as non-compliant.
 
 1.  Sign in
     to SEA-SVR1 as !!Contoso\Administrator!! with
-    the password !!**[Pa55w.rd](urn:gd:lg:a:send-vm-keys)!!
+    the password !!Pa55w.rd!!
 
 2.  On the taskbar, select **Microsoft Edge**. In Microsoft Edge,
     type !!https://Intune.microsoft.com!! in the address bar, and
@@ -86,8 +86,7 @@ as non-compliant.
 
 9.  On the **Compliance settings** tab, expand **Device Properties**. In
     the **Minimum OS version** field,
-    type !!**[10.0.19041.329](urn:gd:lg:a:send-vm-keys)!!**
-
+    type !!10.0.19041.329!!
     > ![A screenshot of a computer Description automatically
     > generated](./media/image7.png)
 
@@ -182,7 +181,7 @@ functions as expected.
     > generated](./media/image18.png)
 
 5.  On the **New** blade, select **No target resources selected**,
-    select the **Select apps** radio button, select !!**Office 365
+    select the **Select resources** radio button, select !!**Office 365
     Exchange Online!!**, and then click **Select**.
 
     > ![A screenshot of a computer Description automatically
@@ -233,7 +232,7 @@ functions as expected.
 3.  On the pick an account dialog box,
     select !!Cindy@M365xXXXXXXX.onmicrosoft.com!!
 
-4.  On the **Enter password** page, enter !!**P@55w.rd12345!!** and
+4.  On the **Enter password** page, enter !!P@55w.rd1234!! and
     select **Sign in**. If the Microsoft Edge Save password prompt
     appears, select **Update**.
 
