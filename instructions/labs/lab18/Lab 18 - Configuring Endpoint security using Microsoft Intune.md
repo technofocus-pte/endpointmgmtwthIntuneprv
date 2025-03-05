@@ -105,7 +105,7 @@ a non-enrolled device, SEA-CL1.
     enter !!Contoso IT!!
 
 14. For **Phone**, select **Configured** and then
-    enter !!**[555-1234](urn:gd:lg:a:send-vm-keys)!!** and then
+    enter !!555-1234!! and then
     select **Next**.
 
     > ![A screenshot of a computer Description automatically
