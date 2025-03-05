@@ -38,7 +38,7 @@ a non-enrolled device, SEA-CL1.
 
 1.  Switch and sign in
     to ***SEA-SVR1*** as !!Contoso\Administrator!! with
-    the password !![Pa55w.rd]!!
+    the password !!Pa55w.rd!!
 
 2.  On the taskbar, select **Microsoft Edge**.
 
