@@ -15,14 +15,14 @@ perform the steps to deploy SEA-WS4.
 
 ### **Task 1: Create a new Deployment Share**
 
-1.  Switch to [**SEA-SVR2**](urn:gd:lg:a:select-vm), sign in
-    as !!**[Contoso\\Administrator](urn:gd:lg:a:send-vm-keys)!!** with
-    the password !!**[Pa55w.rd](urn:gd:lg:a:send-vm-keys)!!**
+1.  Switch to SEA-SVR2, sign in
+    as !!Contoso\\Administrator!! with
+    the password !!Pa55w.rd!!
 
     > ![Screenshot](./media/image1.png)
 
 2.  On the taskbar, select **File Explorer** and then browse
-    to !!**[E:\\Labfiles\\ISOs](urn:gd:lg:a:send-vm-keys)!!**
+    to !!E:\\Labfiles\\ISOs!!
 
     > ![Screenshot](./media/image2.png)
 
@@ -47,7 +47,7 @@ perform the steps to deploy SEA-WS4.
     > The **New Deployment Share Wizard** opens.
 
 7.  On the **Path** page, under **Deployment share path**, change the
-    value to !!**[E:\\DeploymentShare](urn:gd:lg:a:send-vm-keys)!!** and
+    value to !!E:\\DeploymentShare!! and
     then select **Next**.
 
     > ![Screenshot](./media/image7.png)
