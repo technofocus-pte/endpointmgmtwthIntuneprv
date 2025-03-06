@@ -171,7 +171,7 @@ perform the steps to deploy SEA-WS4.
     > ![Screenshot](./media/image24.png).
  
 7.  On the **Command Details** page, under **Command
-    line** enter !!XmlNotepadSetup.msi/q!! and then select **Next**.
+    line** enter !!XmlNotepadSetup.msi /q!! and then select **Next**.
 
     > ![Screenshot](./media/image25.png).
  
