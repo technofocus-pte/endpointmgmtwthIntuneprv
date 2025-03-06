@@ -1,4 +1,4 @@
-Lab 20: Deploying Windows 11 with Autopilot
+# Lab 20: Deploying Windows 11 with Autopilot
 
 **Summary**
 
@@ -133,7 +133,7 @@ configured using Hyper-V.
     generated](./media/image17.png) 
 
 8.  You will receive three prompts. Each time,
-    type [**Y**](urn:gd:lg:a:send-vm-keys), and then press **Enter**.
+    type **Y**, and then press **Enter**.
 
      ![](./media/image18.png) 
  
