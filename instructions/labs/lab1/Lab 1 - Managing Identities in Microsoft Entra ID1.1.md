@@ -387,14 +387,14 @@ page.
     press **Enter**:
 
     ```
-       $group = Get-MsolGroup | Where-Object {$\_.DisplayName -eq
+       $group = Get-MsolGroup | Where-Object {$_.DisplayName -eq
        "Contoso_Sales"}
     ```
 6.  In the **Windows PowerShell** window, type the following code to
     define another variable as the user, and then press **Enter**:
 
     ```
-       $user = Get-MsolUser | Where-Object {$\_.DisplayName -eq "Cody
+       $user = Get-MsolUser | Where-Object {$_.DisplayName -eq "Cody
        Godinez"}
     ```
 7.  In the **Windows PowerShell** window, type the following code to add
