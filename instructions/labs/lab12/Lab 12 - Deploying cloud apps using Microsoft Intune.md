@@ -101,7 +101,7 @@ Task 1: Add Microsoft Remote Desktop to Microsoft Intune
      ![A screenshot of a computer Description automatically
      generated](./media/image7.png)
 
-13. On the **Select groups** page, select the **Research** group, and
+13. On the **Select groups** page, select the **Research** group and **sales** group, and
     then click **Select**.
 
      ![A screenshot of a computer Description automatically
