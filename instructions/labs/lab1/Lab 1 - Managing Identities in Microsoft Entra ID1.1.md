@@ -175,8 +175,8 @@ Godinez's account.
 
     
   ```
-  New-MsolUser -UserPrincipalName cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"  FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
-  ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep" Department "Sales"
+  New-MsolUser -UserPrincipalName cgodinez@M365xXXXXXXXX.onmicrosoft.com -DisplayName "Cody Godinez"  -FirstName "Cody" -LastName "Godinez" -Password ‘P@55w.rd1234’
+  -ForceChangePassword $false -UsageLocation "US" -Title "Sales Rep" Department "Sales"
  ```
  
 
