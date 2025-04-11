@@ -248,14 +248,12 @@ assigned
 
 4.  Click on **Add assignments**.
 
-     ![A screenshot of a computer Description automatically
-     generated](./media/image21.png)
+   
 
 5.  On the Add assignments page, select **Allan Deyoung** and then
     select **Add**.
 
-     ![A screenshot of a computer Description automatically
-     generated](./media/image22.png)
+     
 
 6.  At the top of the page, in the navigation link, select **Roles and
     administrators**.
