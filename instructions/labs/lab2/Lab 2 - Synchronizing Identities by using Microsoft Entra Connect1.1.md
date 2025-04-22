@@ -19,7 +19,7 @@ Entra Connect synchronization tool.
     password of **Pa55w.rd**
 
 2.  On the start menu
-    type [**PowerShell**](urn:gd:lg:a:send-vm-keys) right click on
+    type PowerShell right click on
     PowerShell and select **run as administrator**.
 
     ![](./media/image1.png)
