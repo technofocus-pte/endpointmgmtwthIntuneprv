@@ -50,9 +50,6 @@ Intune. This enables advanced feature sets including:
 - Intune compliance actions based on risk
 
 ------------------------------------------------------------------------
-
-## Task 1: Assign Security Administrator role
-
 ## Task 1: Enable MDE Integration in Intune
 
 1.  Sign in to the **Microsoft Intune admin center**.
