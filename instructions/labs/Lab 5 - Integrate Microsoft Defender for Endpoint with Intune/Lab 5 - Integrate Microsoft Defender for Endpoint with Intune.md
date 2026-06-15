@@ -243,9 +243,9 @@ corporate resources.
 
 ------------------------------------------------------------------------
 
-## Task 1: Create a Device Compliance Policy Based on MDE
+## Task 1: Create a Device Configuration Policy Based on MDE
 
-1.  In Intune, select **Devices → Compliance policies**.
+1.  In Intune, select **Devices → Configuration policies**.
 
 > ![](media/media/image26.png)
 
