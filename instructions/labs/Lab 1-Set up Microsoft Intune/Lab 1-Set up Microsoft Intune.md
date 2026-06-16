@@ -84,6 +84,8 @@ Usage location - United States
 
     - User principal name: [msnider](urn:gd:lg:a:send-vm-keys)
 
+    User principal name:`msnider`
+    
     - Display Name: [Miranda Snider](urn:gd:lg:a:send-vm-keys)
 
     - Uncheck Auto-generate password.
