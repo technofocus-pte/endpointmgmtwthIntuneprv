@@ -27,116 +27,114 @@ Godinez's account.
 ### Task 1: Create users by using the Microsoft Intune admin center
 
 1.  On SEA-SVR1, sign in as Contoso\Administrator with the password
-    of [**Pa55w.rd**](urn:gd:lg:a:send-vm-keys).
+    of `Pa55w.rd`.
 
 2.  Login to <https://Intune.microsoft.com>.
 
-![](media/media/image1.png)
+    ![](media/media/image1.png)
 
 3.  From the left navigation pane, click on Users to create new users.
 
-![](media/media/image2.png)
+    ![](media/media/image2.png)
 
-![](media/media/image3.png)
+    ![](media/media/image3.png)
 
-**Take note of the users that already exist as members. Each user is
-enabled as indicated on the Account enabled column. The On-premises
-synced enabled column states No for all current users. This indicates
-that each user was created directly and is not synchronized from an
-on-premises directory service.**
+    **Take note of the users that already exist as members. Each user is
+    enabled as indicated on the Account enabled column. The On-premises
+    synced enabled column states No for all current users. This indicates
+    that each user was created directly and is not synchronized from an
+    on-premises directory service.**
 
 4.  On the **Users | All users** page, select **New user** then
     select **Create new user**.
 
-![](media/media/image4.png)
+    ![](media/media/image4.png)
 
-5.  On the New User page, ensure that Create user is selected, enter the
+5.  On the New User page, ensure that Create user is selected,  enter the
     following:
 
-**User principal name: [ereeve](urn:gd:lg:a:send-vm-keys)**
+    User principal name:`ereeve`
 
-**Display Name: [Edmund Reeve](urn:gd:lg:a:send-vm-keys)**
+    Display Name:`Edmund Reeve`
 
-**Uncheck Auto-generate password.**
+    Uncheck Auto-generate password.**
 
-**Password [P@55w.rd1234](urn:gd:lg:a:send-vm-keys)**
+    Password `P@55w.rd1234`
 
-![](media/media/image5.png)
+    ![](media/media/image5.png)
 
 6.  On the Properties tab, provide the below information and then click
     on Next Assignments.
 
-Job title, enter [HR Rep](urn:gd:lg:a:send-vm-keys)
+    Job title, enter `HR Rep`
 
-Department, enter  [HR](urn:gd:lg:a:send-vm-keys)
+    Department, enter `HR`
 
-Usage location - United States
+    Usage location - United States
 
-![](media/media/image6.png)
+    ![](media/media/image6.png)
 
 7.  On the Assignments tab, click on Review + create button. Then Verify
     the details then click on the **Create** button.
 
-![](media/media/image7.png)
+    ![](media/media/image7.png)
 
 8.  Similarly create the user account for Miranda Snider with the below
     details.
 
-    - User principal name: [msnider](urn:gd:lg:a:send-vm-keys)
+    - User principal name:`msnider`
 
-    User principal name:`msnider`
-    
-    - Display Name: [Miranda Snider](urn:gd:lg:a:send-vm-keys)
+    - Display Name: [Miranda Snider]
 
     - Uncheck Auto-generate password.
 
-    - Password: [P@55w.rd1234](urn:gd:lg:a:send-vm-keys)
+    - Password: [P@55w.rd1234]  
 
-    - Job title - [Helpdesk Manager](urn:gd:lg:a:send-vm-keys)
+    - Job title - [Helpdesk Manager]  
 
-    - Department: [Operations](urn:gd:lg:a:send-vm-keys)
+    - Department: [Operations]  
 
     - Usage location: United States
 
-> ![](media/media/image8.png)
+    ![](media/media/image8.png)
 
 9.  Select the user account of **Allan Deyoung** and click on Edit
     properties and update the Job information with the below details and
     then click on the Save button.
 
-    1.  Job title- [IT Admin](urn:gd:lg:a:send-vm-keys)
+    1.  Job title- [IT Admin]  
 
-    2.  Department - [IT](urn:gd:lg:a:send-vm-keys)
+    2.  Department - [IT]  
 
-> ![](media/media/image9.png)
+    ![](media/media/image9.png)
 
-![A screenshot of a computer Description automatically
+    ![A screenshot of a computer Description automatically
 generated](media/media/image10.png)
 
 10. Select the user account of **Joni Sherman** and click on Edit
     properties and update the Job information with the below details and
     then click on the Save button.
 
-    1.  Job title- [ParaLegal](urn:gd:lg:a:send-vm-keys)
+    1.  Job title - `ParaLegal` 
 
-    2.  Department - [Legal](urn:gd:lg:a:send-vm-keys)
+    2.  Department -`Legal`  
 
-> ![](media/media/image11.png)
+    ![](media/media/image11.png)
 
-![A screenshot of a computer Description automatically
+    ![A screenshot of a computer Description automatically
 generated](media/media/image12.png)
 
 11. Select the user account of **Alex Wilber** and click on Edit
     properties and update the Job information with the below details and
     then click on the Save button.
 
-    1.  Job title - [Marketing Assistant](urn:gd:lg:a:send-vm-keys)
+    1.  Job title -`Marketing Assistant`
 
-    2.  Department – [Marketing](urn:gd:lg:a:send-vm-keys)
+    2.  Department - `Marketing`
 
-> ![](media/media/image13.png)
+    ![](media/media/image13.png)
 
-![](media/media/image14.png)
+    ![](media/media/image14.png)
 
 ### Task 2: Create users by using PowerShell
 
@@ -148,7 +146,7 @@ generated](media/media/image12.png)
 
 2.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**. If prompted, enter 
-    !\![**Y**](urn:gd:lg:a:send-vm-keys)!!  at the NuGet and repository
+    !\![**Y**]  !!  at the NuGet and repository
     messages:
 
 > !!**Install-Module Microsoft.Graph -Scope CurrentUser**!!
@@ -424,7 +422,7 @@ Task 1: Create groups by using the Microsoft Entra admin center
 
     - Group type: **Security**
 
-    - Group name: !\![**Contoso_Managers**](urn:gd:lg:a:send-vm-keys)!!
+    - Group name: !\![**Contoso_Managers**]  !!
 
     - Membership type: **Assigned**
 
