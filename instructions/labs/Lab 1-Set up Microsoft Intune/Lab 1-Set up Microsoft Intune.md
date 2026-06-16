@@ -84,15 +84,15 @@ Godinez's account.
 
     - User principal name:`msnider`
 
-    - Display Name: [Miranda Snider]
+    - Display Name:`Miranda Snider`
 
     - Uncheck Auto-generate password.
 
-    - Password: [P@55w.rd1234]  
+    - Password:`P@55w.rd1234`  
 
-    - Job title - [Helpdesk Manager]  
+    - Job title -`Helpdesk Manager`  
 
-    - Department: [Operations]  
+    - Department:`Operations`
 
     - Usage location: United States
 
