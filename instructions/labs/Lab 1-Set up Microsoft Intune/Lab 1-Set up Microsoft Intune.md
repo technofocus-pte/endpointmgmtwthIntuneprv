@@ -138,40 +138,40 @@ generated](media/media/image12.png)
 
 ### Task 2: Create users by using PowerShell
 
-1.  On [***SEA-SVR1***](urn:gd:lg:a:select-vm), on the taskbar,
+1.  On ***SEA-SVR1***, on the taskbar,
     right-click **Start**, and then select **Windows PowerShell
     (Admin)**.
 
-> ![](media/media/image15.png)
+    ![](media/media/image15.png)
 
 2.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**. If prompted, enter 
     !\![**Y**]  !!  at the NuGet and repository
     messages:
 
-> !!**Install-Module Microsoft.Graph -Scope CurrentUser**!!
->
-> ![](media/media/image16.png)
->
-> ![](media/media/image17.png)
+    `Install-Module Microsoft.Graph -Scope CurrentUser`
+
+    ![](media/media/image16.png)
+
+    ![](media/media/image17.png)
 
 3.  In the **Windows PowerShell** window, type the following command,
     and then press **Enter**:
 
-> !!**Connect-MgGraph -Scopes
-> "Directory.ReadWrite.All","User.ReadWrite.All","Group.ReadWrite.All","RoleManagement.ReadWrite.Directory","Policy.ReadWrite.Authorization","Application.ReadWrite.All","offline_access"**
->
-> !!
+    ```
+    Connect-MgGraph -Scopes
+    "Directory.ReadWrite.All","User.ReadWrite.All","Group.ReadWrite.All","RoleManagement.ReadWrite.Directory","Policy.ReadWrite.Authorization","Application.ReadWrite.All","offline_access"
+    ```
 
 4.  Select **Work or school account**
 
-![](media/media/image18.png)
+    ![](media/media/image18.png)
 
 5.  Click **Yes.**
 
-> ![](media/media/image19.png)
->
-> ![](media/media/image20.png)
+    ![](media/media/image19.png)
+
+    ![](media/media/image20.png)
 
 6.  In the **Sign in to your account** dialog box, sign in using the
     Office 365 Tenant credentials from the Home tab.
