@@ -102,9 +102,9 @@ Godinez's account.
     properties and update the Job information with the below details and
     then click on the Save button.
 
-    1.  Job title- [IT Admin]  
+    1.  Job title-`IT Admin`
 
-    2.  Department - [IT]  
+    2.  Department -`IT`
 
     ![](media/media/image9.png)
 
