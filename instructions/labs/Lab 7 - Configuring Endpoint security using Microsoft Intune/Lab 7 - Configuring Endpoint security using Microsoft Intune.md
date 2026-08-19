@@ -68,7 +68,7 @@ Task 1: Configure Windows Security Experience in Intune
 > ![](media/media/image4.png)
 
 8.  On the Basics tab, in the **Name** field, enter !!**[Windows
-    Security Settings](urn:gd:lg:a:send-vm-keys)!!**. Select **Next**.
+    Security Settings]!!**. Select **Next**.
 
 > ![A screenshot of a computer Description automatically
 > generated](media/media/image5.png)
