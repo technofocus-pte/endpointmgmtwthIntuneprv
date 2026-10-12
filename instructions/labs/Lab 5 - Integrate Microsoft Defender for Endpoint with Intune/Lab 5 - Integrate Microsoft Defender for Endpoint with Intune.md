@@ -1,308 +1,241 @@
 # Lab 5 – Integrate Microsoft Defender for Endpoint with Microsoft Intune
 
-**Summary**
+### Summary
 
-In this lab, you will integrate **Microsoft Defender for Endpoint
-(MDE)** with **Microsoft Intune** to enable advanced security
-capabilities such as device risk scoring, endpoint detection and
-response (EDR), automated investigations, and Intune compliance actions
-based on device risk level. You will configure the integration, onboard
-a Windows 11 device (SEA‑WS1), validate MDE sensor connectivity, and
-test device risk-based conditional access.
+In this lab, you will integrate **Microsoft Defender for Endpoint (MDE)** with **Microsoft Intune** to enable advanced security capabilities such as device risk scoring, endpoint detection and response (EDR), automated investigations, and Intune compliance actions based on device risk level. You will configure the integration, onboard a Windows 11 device (SEA-WS1), validate MDE sensor connectivity, and test device risk-based conditional access.
 
-------------------------------------------------------------------------
-
-**Prerequisites**
+### Prerequisites
 
 Before starting this lab, ensure the following labs are completed:
 
 - Lab 1 – Set up Microsoft Intune
-
 - Lab 2 – Manage Microsoft Entra Device Registration
-
 - Lab 3 – Configure and Manage Device Enrollment
-
 - Lab 4 – Enroll Devices into Microsoft Intune
 
 You also need:
 
-- A valid **Microsoft Defender for Endpoint P2** or **Microsoft 365 E5
-  Security** license (provided in the tenant).
+- A valid **Microsoft Defender for Endpoint P2** or **Microsoft 365 E5 Security** license (provided in the tenant).
+- A Windows 11 device: **SEA-WS1**, enrolled in Intune as a standard user (Cindy White).
 
-- A Windows 11 device: **SEA‑WS1**, enrolled in Intune as a standard
-  user (Cindy White).
+## Exercise 1: Enable Microsoft Defender for Endpoint Integration
 
-------------------------------------------------------------------------
+### Scenario
 
-**Exercise 1: Enable Microsoft Defender for Endpoint Integration**
-
-**Scenario**
-
-Contoso wants to enhance endpoint protection by integrating MDE with
-Intune. This enables advanced feature sets including:
+Contoso wants to enhance endpoint protection by integrating MDE with Intune. This enables advanced feature sets including:
 
 - Device risk evaluation
-
 - MDE security recommendations
-
 - Automated remediation
-
 - Intune compliance actions based on risk
 
-------------------------------------------------------------------------
-## Task 1: Enable MDE Integration in Intune
+### Task 1: Enable MDE Integration in Intune
 
-1.  Sign in to the **Microsoft Intune admin center**.
+1. Sign in to the **Microsoft Intune admin center**.
 
-2.  In the left navigation pane, select **Endpoint security**.
+2. In the left navigation pane, select **Endpoint security**.
 
-> ![](media/media/image1.png)
+    ![](media/media/image1.png)
 
-3.  Under **Setup** select **Microsoft Defender for Endpoint**.
+3. Under **Setup**, select **Microsoft Defender for Endpoint**.
 
-> ![](media/media/image2.png)
->
-> **Note**: Notice that the connection status is unavailable.
->
-> ![](media/media/image3.png)
+    ![](media/media/image2.png)
 
-4.  Go to **Microsoft Defender portal**: https://security.microsoft.com
+    > **Note:** Notice that the connection status is unavailable.
 
-5.  Navigate to:  
-    **Settings → Endpoints**
+    ![](media/media/image3.png)
 
-> ![](media/media/image4.png)
+4. Go to the **Microsoft Defender portal**: **https://security.microsoft.com**
 
-6.  Select **Advanced features**.
+5. Navigate to **Settings → Endpoints**.
 
-7.  Turn on the following features and click **Save preferences**
+    ![](media/media/image4.png)
+
+6. Select **Advanced features**.
+
+7. Turn on the following features:
 
     - **Microsoft Intune connection**
-
     - **Endpoint protection**, **EDR**, etc.
 
-> ![](media/media/image5.png)
->
-> ![](media/media/image6.png)
+    ![](media/media/image5.png)
 
-8.  Click **Save Preferences**.
+    ![](media/media/image6.png)
 
-9.  Return to the Intune admin center and navigate to **Endpoint
-    security** → **Microsoft Defender for Endpoint.** Notice that
-    Connection status is now changed to **Available.**
+8. Click **Save preferences**.
 
-> ![](media/media/image7.png)
+9. Return to the Intune admin center and navigate to **Endpoint security → Microsoft Defender for Endpoint**. Notice that the connection status has changed to **Available**.
+
+    ![](media/media/image7.png)
 
 10. Under **Connectors**, click **Open the connector page**.
 
 11. Enable the following settings:
 
-    - **Allow Microsoft Defender for Endpoint to enforce compliance** →
-      *On*
-
+    - **Allow Microsoft Defender for Endpoint to enforce compliance** → *On*
     - **Connect Windows devices version 10 or later** → *On*
-
     - **Connect iOS and Android devices** → *On*
 
-> ![](media/media/image8.png)
+    ![](media/media/image8.png)
 
 12. Click **Save**.
 
-> ![](media/media/image9.png)
+    ![](media/media/image9.png)
 
-# Exercise 2: Configure Device Onboarding for Windows
+## Exercise 2: Configure Device Onboarding for Windows
 
-**Scenario**
+### Scenario
 
-To onboard Windows devices into Defender for Endpoint, Contoso will use
-Intune's built‑in onboarding profile. Devices receive MDE sensor
-settings automatically upon assignment.
+To onboard Windows devices into Defender for Endpoint, Contoso will use Intune's built-in onboarding profile. Devices receive MDE sensor settings automatically upon assignment.
 
-------------------------------------------------------------------------
+### Task 1: Create an MDE Onboarding Policy in Intune
 
-## Task 1: Create an MDE Onboarding Policy in Intune
+1. In Intune, select **Endpoint security**, then select **Endpoint detection and response**.
 
-1.  In Intune, select **Endpoint security**, select **Endpoint detection
-    and response**.
+    ![](media/media/image10.png)
 
-> ![](media/media/image10.png)
+2. Scroll down the page and click **+ Create Policy**.
 
-2.  Scroll down the page and click **+ Create Policy**.
+    ![](media/media/image11.png)
 
-> ![](media/media/image11.png)
-
-3.  Select the following and click **Create**
+3. Select the following and click **Create**:
 
     - **Platform:** Windows
-
     - **Profile:** Endpoint detection and response
 
-> ![](media/media/image12.png)
+    ![](media/media/image12.png)
 
-4.  On the **Basics** tab enter the following details and click
-    **Next**.
+4. On the **Basics** tab, enter the following details and click **Next**:
 
-- Name: **Contoso – MDE Onboarding Policy**
+    - Name: **Contoso – MDE Onboarding Policy**
+    - Description: **Onboards Windows devices into Microsoft Defender for Endpoint**
 
-- Description: **Onboards Windows devices into Microsoft Defender for
-  Endpoint**
+    ![](media/media/image13.png)
 
-> ![](media/media/image13.png)
+5. On the **Configuration settings** tab, select the following for Microsoft Defender for Endpoint, and then click **Next**:
 
-5.  **On the Configuration Settings blade select the following for
-    Microsoft Defender for Endpoint**
+    - **Microsoft Defender for Endpoint client configuration package type** → **Auto from connector**
+    - **Sample sharing** → **All**
 
-- Microsoft Defender for Endpoint client configuration package type 🡪
-  select Auto from connector
+    ![](media/media/image14.png)
 
-- **Sample sharing diagnostic** →All
+6. On the **Scope tags** tab, click **Next**. On the **Assignments** tab, select **Contoso Developer devices**. Click **Next** → **Save**.
 
-Click **Next**.
+    ![](media/media/image15.png)
 
-> ![](media/media/image14.png)
+    ![](media/media/image16.png)
 
-6.  On the **Scopes** tab click **Next**, on the **Assignments** tab
-    select **Contoso Developer devices.** Click **Next** → **Save**.
+## Exercise 3: Sync and Validate MDE Onboarding on SEA-WS1
 
-![](media/media/image15.png)
+### Task 1: Sync the Device
 
-![](media/media/image16.png)
+1. On **SEA-WS1**, sign in as **Cindy White**.
 
-------------------------------------------------------------------------
+2. Open **Settings → Accounts → Access work or school**.
 
-# Exercise 3: Sync and Validate MDE Onboarding on SEA‑WS1
+    ![](media/media/image17.png)
 
-## Task 1: Sync the Device
+3. Select **Connected to Contoso's Azure AD** → **Info**.
 
-1.  On **SEA‑WS1**, sign in as **Cindy White**.
+    ![](media/media/image18.png)
 
-2.  Open **Settings → Accounts → Access work or school**.
+4. Scroll down and select **Sync**.
 
-> ![](media/media/image17.png)
+    ![](media/media/image19.png)
 
-3.  Select **Connected to Contoso’s Azure AD** → **Info**.
+    > **Note:** It may take 5–10 minutes for the onboarding to complete.
 
-> ![](media/media/image18.png)
+5. On SEA-WS1, open **Terminal (Admin)**.
 
-4.  Scroll down and select **Sync**.
+    ![](media/media/image20.png)
 
-> ![](media/media/image19.png)
+6. Run the following command to confirm that the Defender for Endpoint sensor service is running:
 
-*Note: It may take 5–10 minutes for the onboarding to complete.*
+    ```powershell
+    sc query sense
+    ```
 
-5.  On SEA‑WS1, open **Terminal admin)**.
+    ![](media/media/image21.png)
 
-![](media/media/image20.png)
+7. Open **Windows Security** → **Virus & threat protection**.
 
-7.  Run:
+    ![](media/media/image22.png)
 
-> sc query sense
->
-> ![](media/media/image21.png)
-
-8.  Open **Windows Security** → **Virus & threat protection**.
-
-> ![](media/media/image22.png)
-
-9.  Confirm the following features are **On** by default.
+8. Confirm the following features are **On** by default:
 
     - Real-time protection: **On**
-
     - Cloud-delivered protection: **On**
 
-> ![](media/media/image23.png)
+    ![](media/media/image23.png)
 
-10. Back on SEA-SVR1, go to **security.microsoft.com**
+9. Back on **SEA-SVR1**, go to **https://security.microsoft.com**.
 
-11. Navigate to:  
-    **Assets → Devices**
+10. Navigate to **Assets → Devices**.
 
-> ![](media/media/image24.png)
+    ![](media/media/image24.png)
 
-12. Ensure that **SEA‑WS1** is listed
+11. Ensure that **SEA-WS1** is listed, and confirm:
 
-13. Confirm:
+    - The device is listed
+    - The MDE sensor is active
+    - The **Onboarding status** is **Onboarded**
 
-    - Device is listed
+    ![](media/media/image25.png)
 
-    - MDE sensor active
+## Exercise 4: Configure Intune Compliance Based on Device Risk
 
-    - "Onboarded" status is **Active**
+### Scenario
 
-> ![](media/media/image25.png)
+Contoso wants to block access if a device is considered "High Risk" by Defender for Endpoint. This ensures compromised devices cannot access corporate resources.
 
-------------------------------------------------------------------------
+### Task 1: Create a Device Configuration Policy Based on MDE
 
-# Exercise 4: Configure Intune Compliance Based on Device Risk
+1. In Intune, select **Devices → Configuration policies**.
 
-**Scenario**
+    ![](media/media/image26.png)
 
-Contoso wants to block access if a device is considered "High Risk" by
-Defender for Endpoint. This ensures compromised devices cannot access
-corporate resources.
+2. Click **+ Create policy**.
 
-------------------------------------------------------------------------
+    ![](media/media/image27.png)
 
-## Task 1: Create a Device Configuration Policy Based on MDE
-
-1.  In Intune, select **Devices → Configuration policies**.
-
-> ![](media/media/image26.png)
-
-2.  Click **+ Create policy**.
-
-> ![](media/media/image27.png)
-
-3.  Select:
+3. Select:
 
     - Platform: **Windows 10 and later**
+    - Profile type: **Templates**
+    - Template: **Microsoft Defender for Endpoint**
 
-    - Profile type: **Template**
+    ![](media/media/image28.png)
 
-    - Select **Microsoft Defender for Endpoint**.
+4. Click **Create**.
 
-> ![](media/media/image28.png)
+5. On the **Basics** tab, enter the following policy name and click **Next**:
 
-4.  Click Create**.**
+    - Name: **Contoso Developer – Device risk policy**
 
-5.  On the **Basics** tab enter the following policy name
+    ![](media/media/image29.png)
 
-Name: **Contoso Developer – Device risk policy  
-**![](media/media/image29.png)
+6. On the **Configuration settings** tab, configure the following and click **Next**:
 
-6.  On the Configurations tab configure the following and click
-    **Next**.
+    - Sample sharing for all files: **Block**
+    - Expedite telemetry reporting frequency: **Enable**
 
-Sample sharing for all files: **Block**
+    ![](media/media/image30.png)
 
-Expedite telemetry reporting frequency: **Enable**
+7. On the **Assignments** page, assign to **Contoso Developer devices** and click **Next** → **Create**.
 
-![](media/media/image30.png)
+    ![](media/media/image31.png)
 
-7.  On the **Assignments** page Assign to: **Contoso Developer devices**
-    and Click Next → Create.
+    ![](media/media/image32.png)
 
-![](media/media/image31.png)
+    ![](media/media/image33.png)
 
-![](media/media/image32.png)
-
-![](media/media/image33.png)
-
-------------------------------------------------------------------------
-
-**Results**
+### Results
 
 After completing this lab, you have successfully:
 
 - Integrated **Microsoft Defender for Endpoint** with Intune
-
 - Onboarded a Windows 11 device into Defender
-
 - Enabled EDR, cloud-delivered protection, and sensor monitoring
-
 - Configured Intune to enforce compliance based on device risk
 
-Your Contoso environment now has full **endpoint protection**, **device
-risk evaluation**, and **conditional access enforcement**.
-
-------------------------------------------------------------------------
+Your Contoso environment now has full **endpoint protection**, **device risk evaluation**, and **conditional access enforcement**.
