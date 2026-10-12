@@ -1,195 +1,137 @@
-# Lab 2 - Manage Microsoft Entra Device registration.
+# Lab 2 - Manage Microsoft Entra Device registration
 
-**Summary**
+### Summary
 
-In this lab, we will perform Microsoft Entra registration using a
-Windows device.
+In this lab, we will perform Microsoft Entra registration using a Windows device.
 
-**Exercise 1: Configuring Microsoft Entra device registration**
+## Exercise 1: Configuring Microsoft Entra device registration
 
-**Scenario**
+### Scenario
 
-Several users have asked to use their personal iOS, Android, and Windows
-devices to access Contoso cloud resources. Since Contoso does not own
-the devices, you do not want to have the users perform an Entra join for
-full device management. Instead, you need to ensure that users are able
-to register their devices with Microsoft Entra, which still allows you
-to apply company policy to apps as needed, and still permit users to
-access Contoso resources. You will test out Microsoft Entra device
-registration using a Windows 11 device.
+Several users have asked to use their personal iOS, Android, and Windows devices to access Contoso cloud resources. Since Contoso does not own the devices, you do not want to have the users perform an Entra join for full device management. Instead, you need to ensure that users are able to register their devices with Microsoft Entra, which still allows you to apply company policy to apps as needed, and still permit users to access Contoso resources. You will test out Microsoft Entra device registration using a Windows 11 device.
 
-**Task 1: Configure Microsoft Entra device registration**
+### Task 1: Configure Microsoft Entra device registration
 
-1.  On the
-    [*SEA-SVR1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10),
-    open a new tab in the Edge browser and enter the following URL,
-    !!**https://entra.microsoft.com**!!, then press the **Enter**
-    button.
+1. On **SEA-SVR1**, open a new tab in the Edge browser, enter the URL **https://entra.microsoft.com**, and then press **Enter**.
 
-2.  In the **Microsoft Entra admin center** window, navigate and click
-    on **Entra** **Id**.
+2. In the **Microsoft Entra admin center** window, navigate and click on **Entra ID**.
 
-![](media/media/image1.png)
+    ![](media/media/image1.png)
 
-3.  Select **Devices**, then **Device settings** page, in the details
-    pane, verify that **Users may register their devices with Microsoft
-    Entra** is set to **All** and is greyed out.
+3. Select **Devices**, then **Device settings**. In the details pane, verify that **Users may register their devices with Microsoft Entra** is set to **All** and is greyed out.
 
-> This option is greyed out and set to **All** by default when Microsoft
-> Intune is enabled in the tenant. This ensures that all users are able
-> to register Windows 10 or newer personal, iOS, Android, and macOS
-> devices with Entra ID.
->
-> ![](media/media/image2.png)
+    > **Note:** This option is greyed out and set to **All** by default when Microsoft Intune is enabled in the tenant. This ensures that all users are able to register Windows 10 or newer personal, iOS, Android, and macOS devices with Entra ID.
 
-**Task 2: Perform Microsoft Entra registration**
+    ![](media/media/image2.png)
 
-1.  Switch
-    to [*SEA-WS1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10) and
-    sign in as **Admin** with the password of !!**Pa55w.rd**!!.
+### Task 2: Perform Microsoft Entra registration
 
-![A screenshot of a computer Description automatically generated with
-medium confidence](media/media/image3.png)
+1. Switch to **SEA-WS1** and sign in as **Admin** with the password **Pa55w.rd**.
 
-2.  On the taskbar, select **Start** and then select **Settings**.
+    ![](media/media/image3.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image4.png)
+2. On the taskbar, select **Start** and then select **Settings**.
 
-3.  In the **Settings** window, select **Accounts**.
+    ![](media/media/image4.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image5.png)
+3. In the **Settings** window, select **Accounts**.
 
-4.  On the **Accounts** page, select **Access work or school**.
+    ![](media/media/image5.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image6.png)
+4. On the **Accounts** page, select **Access work or school**.
 
-5.  In the **Access work or school** page, select **Connect**.
+    ![](media/media/image6.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image7.png)
+5. On the **Access work or school** page, select **Connect**.
 
-6.  On the **Sign in** page,
-    type !!**JoniS@M365xXXXXXXX.onmicrosoft.com**!!  and then
-    select **Next**.
+    ![](media/media/image7.png)
 
-![](media/media/image8.png)
+6. On the **Sign in** page, type **JoniS@M365xXXXXXXXX.onmicrosoft.com** and then select **Next**.
 
-7.  On the **Enter password** page, enter the tenant password:
-    !\![**P@55w.rd1234**](mailto:P@55w.rd1234)!! and then select **Sign
-    in**
+    ![](media/media/image8.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image9.png)
+7. On the **Enter password** page, enter the tenant password **P@55w.rd1234** and then select **Sign in**.
 
-8.  On the **You're all set!** page, select **Done**.
+    ![](media/media/image9.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image10.png)
+8. On the **You're all set!** page, select **Done**.
 
-9.  On the **Access work or school** page, verify that Joni's **Work or
-    school account** is displayed.
+    ![](media/media/image10.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image11.png)
+9. On the **Access work or school** page, verify that Joni's **Work or school account** is displayed.
 
-10. Close the **Settings** page.
+    ![](media/media/image11.png)
 
-**Task 3: Validate Microsoft Entra registration**
+10. Close the **Settings** page.
 
-1.  On [*SEA-WS1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10),
-    right-click on **Start button**, and then select **Windows Terminal
-    (Admin)**.
+### Task 3: Validate Microsoft Entra registration
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image12.png)
+1. On **SEA-WS1**, right-click the **Start** button, and then select **Windows Terminal (Admin)**.
 
-2.  On the **User Account Control** dialog box, select **Yes**.
+    ![](media/media/image12.png)
 
-> ![A screenshot of a computer error Description automatically
-> generated](media/media/image13.png)
+2. In the **User Account Control** dialog box, select **Yes**.
 
-3.  In the PowerShell console, type the following and press **Enter**:
+    ![](media/media/image13.png)
 
-> !!**dsregcmd /status**!!
+3. In the PowerShell console, type the following command and press **Enter**:
 
-4.  In the output under **User State**, verify that **WorkplaceJoined :
-    YES** is displayed. This indicates that the user has performed a
-    device registration in Microsoft Entra.
+    ```powershell
+    dsregcmd /status
+    ```
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image14.png)
+4. In the output under **User State**, verify that **WorkplaceJoined : YES** is displayed. This indicates that the user has performed a device registration in Microsoft Entra.
 
-5.  Close PowerShell and then sign out of **SEA-WS1**.
+    ![](media/media/image14.png)
 
-6.  Switch to SEA-SVR1. Go to **Microsoft Entra admin center** window,
-    navigate and click on **Entra Id**.
+5. Close PowerShell and then sign out of **SEA-WS1**.
 
-> ![](media/media/image15.png)
->
-> 7\. Under the **Entra** **Id** section, select **Devices**, then
-> navigate and click on **All devices** as shown in the below image.
->
-> ![](media/media/image16.png)
+6. Switch to **SEA-SVR1**. In the **Microsoft Entra admin center** window, navigate and click on **Entra ID**.
 
-8.  Verify that the **Join Type** is listed as **Microsoft Entra
-    registered** and that the owner is **Joni Sherman**.
+    ![](media/media/image15.png)
 
-> ![](media/media/image17.png)
->
-> Notice that the device is Microsoft Entra registered, NOT Microsoft
-> Entra joined. Entra registered devices are typically devices that
-> cannot be Entra joined, or devices that are personally owned by the
-> user. Registering a device will provide access to Cloud based
-> resources.
+7. Under the **Entra ID** section, select **Devices**, then navigate and click on **All devices** as shown in the below image.
 
-9.  Close Microsoft Edge.
+    ![](media/media/image16.png)
 
-**Task 4: Sign in to Windows and disconnect from the organization**
+8. Verify that the **Join Type** is listed as **Microsoft Entra registered** and that the owner is **Joni Sherman**.
 
-1.  Switch
-    to *[SEA-WS1](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10).* On
-    the taskbar, select **Windows Start icon** button and then
-    select **Settings**.
+    ![](media/media/image17.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image4.png)
+    > **Note:** The device is Microsoft Entra registered, NOT Microsoft Entra joined. Entra registered devices are typically devices that cannot be Entra joined, or devices that are personally owned by the user. Registering a device provides access to cloud-based resources.
 
-2.  In the **Settings** window, select **Accounts**.
+9. Close Microsoft Edge.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image5.png)
+### Task 4: Sign in to Windows and disconnect from the organization
 
-3.  On the **Accounts** page, select **Access work or school**.
+1. Switch to **SEA-WS1**. On the taskbar, select the **Windows Start** icon and then select **Settings**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image6.png)
+    ![](media/media/image4.png)
 
-4.  In the **Access work or school** page, click on the dropdown beside
-    **JoniS@M3654xXXXXXXXX** **Work or school** account as shown in the
-    below image.
+2. In the **Settings** window, select **Accounts**.
 
-> ![](media/media/image18.png)
+    ![](media/media/image5.png)
 
-5.  Click on **Disconnect** button.
+3. On the **Accounts** page, select **Access work or school**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image19.png)
+    ![](media/media/image6.png)
 
-6.  Click on the **Yes** button to confirm the removal of the account.
+4. On the **Access work or school** page, click the dropdown beside the **JoniS@M365xXXXXXXXX** **Work or school** account as shown in the below image.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image20.png)
->
-> Notice that you do not have to restart to disconnect a Microsoft Entra
-> registered device.
+    ![](media/media/image18.png)
 
-7.  Sign out of **SEA-WS1**.
+5. Click the **Disconnect** button.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image21.png)
+    ![](media/media/image19.png)
 
-**Results**: After completing this exercise, you will have configured
-Microsoft Entra device registration.
+6. Click **Yes** to confirm the removal of the account.
+
+    ![](media/media/image20.png)
+
+    > **Note:** You do not have to restart to disconnect a Microsoft Entra registered device.
+
+7. Sign out of **SEA-WS1**.
+
+    ![](media/media/image21.png)
+
+**Results**: After completing this exercise, you will have configured Microsoft Entra device registration.
