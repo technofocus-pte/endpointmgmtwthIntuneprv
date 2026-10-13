@@ -1,134 +1,124 @@
-Lab18: Configure App Protection Policies for Mobile Devices
+# Lab 18: Configure App Protection Policies for Mobile Devices
 
-**Summary**
+### Summary
 
-In this lab, you will configure an App protection policy for a mobile
-device.
+In this lab, you will configure an App protection policy for iOS/iPadOS devices and assign it to the users who need it.
 
-**Scenario**
+### Prerequisites
 
-All of the developers at Contoso have iPhones and iPads running the
-latest iOS/iPadOS versions. The security department is concerned with
-data leaks and wants to prevent data from the corporate e-mail to be
-copied out to other apps on the mobile devices. You must provide a
-solution that addresses the concerns from the security department. You
-need to ensure the following:
+The following lab(s) must be completed before this lab:
+
+- Lab #1-Set up Microsoft Intune
+- Lab #3-Manage Device Enrollment into Microsoft Intune
+- Lab #10-Enable Mobile Application Management (MAM) *(recommended — creates the **Contoso MAM Users** group)*
+
+Optional: an iPhone or iPad with **Microsoft Outlook** installed, if you want to test the policy on a device (Task 3).
+
+### Scenario
+
+All of the developers at Contoso have iPhones and iPads running the latest iOS/iPadOS versions. The security department is concerned with data leaks and wants to prevent data from the corporate email from being copied out to other apps on the mobile devices. You must provide a solution that addresses the concerns from the security department. You need to ensure the following:
 
 - Outlook data must be restricted from backing up to iTunes or iCloud.
-
 - Only policy managed apps can send and receive data from Outlook.
-
 - Only policy managed apps can cut, copy, or paste with Outlook.
+- Users must provide their work or school account credentials for access to Outlook.
 
-- Users must provide their Work or school account credentials for access
-  to Outlook.
+### Task 1: Create an App protection policy for iOS/iPadOS devices
 
-Task 1: Create an App protection policy for iOS/iPadOS devices
+1. On **SEA-SVR1**, if necessary, sign in as **Contoso\Administrator** with the password **Pa55w.rd**.
 
-1.  On [***SEA-SVR1***](urn:gd:lg:a:select-vm), if necessary, sign in
-    as [**Contoso\Administrator**](urn:gd:lg:a:send-vm-keys) with the
-    password !\![**Pa55w.rd**](urn:gd:lg:a:send-vm-keys)!!
+2. On the taskbar, select **Microsoft Edge**, type **https://intune.microsoft.com** in the address bar, and then press **Enter**.
 
-2.  On the taskbar, select **Microsoft Edge** and navigate to
-    **Microsoft Intune admin
-    center** !!**https://intune.microsoft.com**!!  in the address bar,
-    and then press **Enter**.
+3. Sign in with the Office 365 Tenant admin credentials from the Home tab.
 
-3.  Sign in with the Office 365 Tenant admin credentials from the Home
-    tab.
+4. On the **Microsoft Intune admin center** page, select **Apps**.
 
-4.  On the **Microsoft Intune admin center** page, select **Apps**.
+    ![](media/media/image1.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image1.png)
+5. On the **Apps | Overview** blade, under **Manage apps**, select **Protection**.
 
-5.  On the **Apps | Overview** blade, under **Manage Apps**, select
-    **protection**.
+    ![](media/media/image2.png)
 
-> ![](media/media/image2.png)
+6. In the details pane, select **+ Create policy** and then select **iOS/iPadOS**.
 
-6.  In the details pane, select **+Create policy** and then
-    select **iOS/iPadOS**.
+    ![](media/media/image3.png)
 
-> ![](media/media/image3.png)
+7. On the **Basics** tab, configure the following options and select **Next**:
 
-7.  On the **Basics** tab, configure the following options and
-    select **Next**:
+    - Name: **Outlook – Developers**
+    - Description: **Policy to prevent cut/copy and paste from Outlook**
 
-    - Name: !\![**Outlook – Developers**](urn:gd:lg:a:send-vm-keys)!!
+    ![](media/media/image4.png)
 
-    - Description: !\![**Policy to prevent cut/copy and paste from
-      Outlook**](urn:gd:lg:a:send-vm-keys)!!
+8. On the **Apps** tab, click **+ Select public apps**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image4.png)
+9. On the **Select apps to target** blade, in the text box, type **Outlook**. Select **Microsoft Outlook**, click the **Select** button, and then select **Next**.
 
-8.  On the **Apps** tab, click + **Select public apps**.
+    ![](media/media/image5.png)
 
-9.  On the **Select apps to target** blade, in the text box, type
-    !!**Outlook**!! Select **Microsoft Outlook** and then click on
-    the **Select** button, and then select **Next**.
+    ![](media/media/image6.png)
 
-> ![Screens screenshot of a computer Description automatically
-> generated](media/media/image5.png)
->
-> ![](media/media/image6.png)
+10. On the **Data protection** tab, configure the following options and select **Next**:
 
-10. On the **Data protection** tab, configure the following options and
-    select **Next**:
+    - Backup Org data to iTunes and iCloud backups: **Block**
+    - Send Org data to other apps: **Policy managed apps**
+    - Receive data from other apps: **Policy managed apps**
+    - Restrict cut, copy, and paste between other apps: **Policy managed apps**
 
-    - Backup Org data to ITunes and iCloud backups: **Block**
+    Leave all other settings at their defaults.
 
-    - Send Org data to other apps: **Policy managed apps**
+    ![](media/media/image7.png)
 
-    - Receive data from other apps: **Policy managed apps**
+11. On the **Access requirements** tab, configure the following options and select **Next**:
 
-    - Restrict cut, copy, and paste between other apps: **Policy managed
-      apps**
+    - PIN for access: **Not required**
+    - Work or school account credentials for access: **Require**
 
-> Leave all other settings at default
->
-> ![](media/media/image7.png)
+    ![](media/media/image8.png)
 
-11. On the **Access requirements** tab, configure the following options
-    and select **Next**:
+12. On the **Conditional launch** tab, review the settings. Select **Next**.
 
-    - PIN for access: **Not required**
+    ![](media/media/image9.png)
 
-    - Work or school account credentials for access: **Require**
+    > **Note:** Here you can set the sign-in security requirements for your app protection policy. You can select a setting and enter the value that users must meet to sign in to your company app. Make note of the various settings but do not change anything.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image8.png)
+13. On the **Assignments** tab, under **Included groups**, select **+ Add groups**. Select **Contoso MAM Users**, choose **Select**, and then select **Next**.
 
-12. On the **Conditional launch** tab, review the settings.
-    Select **Next**.
+    ![](media/media/image10.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image9.png)
->
-> **Note**: Here you can set the sign-in security requirements for your
-> access protection policy. You can select a setting and enter the value
-> that users must meet to sign in to your company app. Make note of the
-> various settings but do not change anything.
+    > **Note:** An app protection policy with no assignment applies to no one. If you did not complete Lab 10, first create a **Security** group named **Contoso MAM Users** with **Assigned** membership and add **Cindy White** to it (**Groups → New group**), then return to this step.
 
-13. On the **Assignments** tab, select **Next**.
+14. On the **Review + create** tab, review the settings and select **Create**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image10.png)
+    ![](media/media/image11.png)
 
-14. On the **Review + create** tab, review the settings and
-    select **Create**.
+15. On the **Apps | Protection** blade, in the details pane, verify that **Outlook – Developers** is listed and that its **Deployed** column shows **Yes**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image11.png)
+    ![](media/media/image12.png)
 
-15. On the **Apps | App protection policies** blade, in the details
-    pane, verify that **Outlook - Developers** is listed.
+### Task 2: Verify the policy assignment
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image12.png)
+1. In the **Apps | Protection** blade, select **Outlook – Developers**.
 
-16. Close Microsoft Edge.
+2. On the policy **Overview** page, review the **Properties** and confirm that:
 
-**Results**: After completing this exercise, you will have successfully
-configured an App protection policy for a mobile device.
+    - **Apps** lists **Microsoft Outlook**
+    - **Assignments** includes **Contoso MAM Users**
+
+3. Close Microsoft Edge.
+
+### Task 3 (optional): Test the policy on an iOS/iPadOS device
+
+Complete this task only if you have an iPhone or iPad available.
+
+1. On the iOS/iPadOS device, open **Microsoft Outlook** and sign in as **Cindy@M365xXXXXXXX.onmicrosoft.com** (substitute **XXXXXXX** with your tenant name) with the password **P@55w.rd1234**.
+
+2. When the message **Your organization is now protecting its data in this app** appears, select **OK**. If prompted, close Outlook and open it again.
+
+3. Open an email, copy some text, and try to paste it into a personal app such as **Notes**.
+
+    Notice that the paste is blocked because only policy managed apps can receive Outlook data.
+
+4. On **SEA-SVR1**, in the Intune admin center, select **Apps → Monitor → App protection status** and confirm that Cindy is listed with the **Outlook – Developers** policy for iOS/iPadOS.
+
+**Results**: After completing this exercise, you will have successfully configured and assigned an App protection policy for iOS/iPadOS devices.

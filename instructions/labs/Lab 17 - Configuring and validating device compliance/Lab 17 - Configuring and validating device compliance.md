@@ -1,308 +1,229 @@
-Lab17 - Configuring and validating device compliance
+# Lab 17 - Configuring and validating device compliance
 
-**Summary**
+### Summary
 
-In this lab, you validate device compliance by configuring a compliance
-policy and associated conditional access rule used to determine the
-status of a managed device.
+In this lab, you validate device compliance by configuring a compliance policy and an associated Conditional Access policy that uses the compliance status of a managed device to allow or block access to email.
 
-**Prerequisites**
+### Prerequisites
 
-To following lab(s) must be completed before this lab:
+The following lab(s) must be completed before this lab:
 
-- Lab \#1-Set up Microsoft Intune
+- Lab #1-Set up Microsoft Intune
+- Lab #3-Manage Device Enrollment into Microsoft Intune
+- Lab #4-Enrolling devices into Microsoft Intune
+- Lab #6-Creating and Deploying Configuration Profiles
 
-- Lab \#2-Synchronizing Identities by using Microsoft Entra Connect
+> **Note:** This lab uses the **Windows Devices** dynamic group created in Lab 6, and **Cindy White**, who was licensed for Exchange Online in Lab 3 and enrolled **SEA-WS1** in Lab 4.
 
-- Lab \#5-Manage Device Enrollment into Microsoft Intune
+## Exercise 1: Configuring compliance policies
 
-- Lab \#6-Enrolling devices into Microsoft Intune
+### Scenario
 
-- Lab \#7-Creating and Deploying Configuration Profiles
+Contoso would like to ensure that Windows devices that are enrolled in Microsoft Intune meet a minimum configuration specification. The following specifications are required:
 
-Exercise 1: Configuring compliance policies.
+- Minimum Windows operating system version: **10.0.19041.329**
+- Microsoft Defender Antimalware: **Required**
 
-**Scenario**
+If a device meets these requirements, it will be marked as compliant. If the device does not meet these requirements, the device should be marked as noncompliant.
 
-Contoso would like to ensure that Windows devices that are enrolled in
-Microsoft Intune meet a minimum configuration specification. The
-following are specifications are required:
+### Task 1: Create and assign a compliance policy
 
-- Minimum Windows operating system version: 10.0.19041.329
+1. Sign in to **SEA-SVR1** as **Contoso\Administrator** with the password **Pa55w.rd**.
 
-- Microsoft Defender Antimalware required.
+2. On the taskbar, select **Microsoft Edge**. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**.
 
-If a device meets these requirements, it will be marked as compliant. If
-the device does not meet these requirements, the device should be marked
-as non-compliant.
+3. Sign in with the **Office 365 Tenant Admin** credentials.
 
-Task 1: Create and assign a compliance policy
+    ![](media/media/image1.png)
 
-1.  Sign in
-    to [***SEA-SVR1***](urn:gd:lg:a:select-vm) as !!**[Contoso\Administrator](urn:gd:lg:a:send-vm-keys)!!** with
-    the password !!**[Pa55w.rd](urn:gd:lg:a:send-vm-keys)!!** 
+4. From the navigation pane, select **Devices**, then select **Compliance** under **Manage devices**.
 
-2.  On the taskbar, select **Microsoft Edge**. In Microsoft Edge,
-    type !!**https://Intune.microsoft.com!!** in the address bar, and
-    then press **Enter**.
+    ![](media/media/image2.png)
 
-3.  Sign in with **Office 365 Tenant Admin credentials**.
+5. On the **Compliance | Policies** blade, in the details pane, select **+ Create policy**.
 
-> ![](media/media/image1.png)
+    ![](media/media/image3.png)
 
-4.  From the navigation pane select **Devices**, then
-    select **Compliance** under Manage devices.
+6. On the **Create a policy** blade, provide the following value and select **Create**:
 
-> ![](media/media/image2.png)
+    - Platform: **Windows 10 and later**
 
-5.  On the **Compliance | Policies** blade, in the details pane
-    select **+ Create Policy**.
+    ![](media/media/image4.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image3.png)
+7. On the **Basics** tab, provide the following value and select **Next**:
 
-6.  On the **Create a policy** blade, provide the following value and
-    select **Create**:
+    - Name: **Compliance1**
 
-    - Platform: **Windows 10 and later**
+    ![](media/media/image5.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image4.png)
+8. On the **Compliance settings** tab, expand **Device Health** and review the available settings.
 
-7.  On the **Basics** tab, provide the following value and
-    select **Next**:
+    ![](media/media/image6.png)
 
-    - Name: !!**[Compliance1](urn:gd:lg:a:send-vm-keys)!!**
+9. On the **Compliance settings** tab, expand **Device Properties**. In the **Minimum OS version** field, type **10.0.19041.329**.
 
-> ![](media/media/image5.png)
+    ![](media/media/image7.png)
 
-8.  On the **Compliance settings** tab, expand **Device Health** and
-    review the available settings.
+10. On the **Compliance settings** tab, expand **System Security**. Set the **Microsoft Defender Antimalware** setting to **Require** and then select **Next**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image6.png)
+    ![](media/media/image8.png)
 
-9.  On the **Compliance settings** tab, expand **Device Properties**. In
-    the **Minimum OS version** field,
-    type !!**[10.0.19041.329](urn:gd:lg:a:send-vm-keys)!!**
+11. On the **Actions for noncompliance** tab, note that the default action **Mark device noncompliant** is set to **Immediately**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image7.png)
+    ![](media/media/image9.png)
 
-10. On the **Compliance settings** tab, expand **System Security**. Set
-    the **Microsoft Defender Antimalware** setting to **Require** and
-    then select **Next**.
+    Review how you can configure the number of days after which the device is marked as noncompliant, and configure additional actions.
 
-> ![](media/media/image8.png)
+12. Select **Next**. On the **Assignments** tab, select **Add groups**. Select **Windows Devices**, choose **Select**, and then select **Next**.
 
-11. On the **Actions for noncompliance** tab, note the action to **Mark
-    device noncompliant** default setting is **immediately**.
+    ![](media/media/image10.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image9.png)
->
-> Review how you can configure the number of days after which the device
-> is marked as noncompliant, and configuration additional actions.
+    > **Note:** The **Windows Devices** dynamic group was created in Lab 6 and automatically includes SEA-WS1.
 
-12. Select **Next**. On the **Assignments** tab, select **Add groups**.
-    Select **Windows Devices**, choose **Select**, and then
-    select **Next**.
+13. Select **Create**.
 
-> ![](media/media/image10.png)
->
-> **Note**: The **Windows Devices** group was created in Creating and
-> Deploying Configuration Profiles - Lab.
+    ![](media/media/image11.png)
 
-13. Select **Create**.
+14. In the navigation menu, select **Devices**, and then in the Devices navigation pane, select **Compliance**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image11.png)
+    ![](media/media/image12.png)
 
-14. In the navigation menu, select **Devices** and then in the Devices
-    navigation pane, select **Compliance**.
+15. On the **Compliance** page, select **Compliance settings**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image12.png)
+    ![](media/media/image13.png)
 
-15. On the **Compliance** page, select **Compliance settings**.
+16. On the **Compliance policy settings** page, next to **Mark devices with no compliance policy assigned as**, select **Not compliant** and then select **Save**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image13.png)
+    ![](media/media/image14.png)
 
-16. On the **Compliance policy settings** page, next to **Mark devices
-    with no compliance policy assigned as**, select **Not
-    Compliant** and then select **Save**.
+    This setting ensures that any device that does not have a compliance policy assigned will be set to **Not compliant**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image14.png)
->
-> This setting will ensure that any device that does not have a
-> compliance policy assigned will be set to **Not compliant**.
+### Task 2: Evaluate compliance on SEA-WS1
 
-**Results**: After completing this exercise, you will have successfully
-configured a compliance policy.
+Before you enforce compliance with Conditional Access, confirm that SEA-WS1 has been evaluated as compliant.
 
-Exercise 2: Creating a conditional access policy to enforce compliance.
+1. Switch to **SEA-WS1** and sign in as **Cindy White** with the PIN **102938**.
 
-**Scenario**
+2. Select **Start** → **Settings** → **Accounts** → **Access work or school**. Select **Connected to Contoso's Azure AD** → **Info**, scroll down, and select **Sync**.
 
-When a user uses a device that is marked as non-compliant, they should
-not be able to access their e-mail. You've been asked to configure a
-conditional access policy that enforces this rule, and verify it
-functions as expected.
+3. Switch to **SEA-SVR1**. In the **Microsoft Intune admin center**, select **Devices** → **All devices**.
 
-Task 1: Create a conditional access policy
+4. Find **SEA-WS1** and verify that the **Compliance** column shows **Compliant**.
 
-1.  On [***SEA-SVR1***](urn:gd:lg:a:select-vm), in the **Microsoft
-    Intune admin center** select **Devices**, then select **Conditional
-    access**.
+    > **Note:** The first compliance evaluation can take 10–15 minutes. If SEA-WS1 shows **Not evaluated** or **In grace period**, wait a few minutes, select **Refresh**, and check again. Do not continue to Exercise 2 until SEA-WS1 shows **Compliant**, or Cindy will be blocked on SEA-WS1 too.
 
-> ![](media/media/image15.png)
+**Results**: After completing this exercise, you will have successfully configured a compliance policy and verified that SEA-WS1 is compliant.
 
-2.  Click on **Policies** then select **+ New policy**,
+## Exercise 2: Creating a Conditional Access policy to enforce compliance
 
-> ![](media/media/image16.png)
+### Scenario
 
-3.  On the **New** blade, in the **Name** text box,
-    type !\![**Conditional1!! **](urn:gd:lg:a:send-vm-keys)and then
-    select **0 users or workload identities selected**.
+When a user uses a device that is not marked as compliant, they should not be able to access their email. You've been asked to configure a Conditional Access policy that enforces this rule, and verify that it functions as expected.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image17.png)
+### Task 1: Create a Conditional Access policy
 
-4.  On the **Users and groups** blade, select the **All users** radio
-    button.
+1. On **SEA-SVR1**, in the **Microsoft Intune admin center**, select **Devices**, then select **Conditional access**.
 
-> ![A screenshot of a computer screen Description automatically
-> generated](media/media/image18.png)
+    ![](media/media/image15.png)
 
-5.  On the **New** blade, select **No target resources selected**,
-    select the **Select apps** radio button, select !!**Office 365
-    Exchange Online!!**, and then click **Select**.
+2. Select **Policies**, then select **+ New policy**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image19.png)
+    ![](media/media/image16.png)
 
-6.  On the **New** blade, in the **Conditions** section, select **0
-    conditions selected**.
+3. On the **New** blade, in the **Name** text box, type **Conditional1**, and then select **0 users or workload identities selected**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image20.png)
+    ![](media/media/image17.png)
 
-7.  In the list of conditions, under **Device platforms**, select **Not
-    configured**. In the **Configure** section select **Yes**, select
-    the **Select device platforms** radio button, select
-    the **Windows** check box, and then select **Done**.
+4. On the **Include** tab, select **Select users and groups**, select the **Users and groups** check box, search for and select **Cindy White**, and then choose **Select**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image21.png)
+    ![](media/media/image18.png)
 
-8.  On the **New** blade under **Access controls**, in
-    the **Grant** section, select **0 controls selected**.
+    > **Note:** The policy targets only Cindy so that it cannot lock the tenant admin or other lab users out of Exchange Online.
 
-9.  Select the **Require device to be marked as compliant** check box,
-    and then select **Select**.
+5. On the **New** blade, select **No target resources selected**, select the **Select resources** radio button, select **Office 365 Exchange Online**, and then click **Select**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image22.png)
+    ![](media/media/image19.png)
 
-10. On the **New** blade, select **On** for the **Enable policy** option
-    and then select **Create**.
+6. On the **New** blade, in the **Conditions** section, select **0 conditions selected**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image23.png)
+    ![](media/media/image20.png)
 
-11. Close Microsoft Edge.
+7. In the list of conditions, under **Device platforms**, select **Not configured**. Set **Configure** to **Yes**, select the **Select device platforms** radio button, select the **Windows** check box, and then select **Done**.
 
-Task 2: Verify that the conditional access policy is working
+    ![](media/media/image21.png)
 
-1.  Switch to [***SEA-WS***](urn:gd:lg:a:select-vm)2 and sign in
-    as !!**[Admin](urn:gd:lg:a:send-vm-keys)!!** with the password
-    of !!**[Pa55w.rd](urn:gd:lg:a:send-vm-keys)!!**.
+8. On the **New** blade, under **Access controls**, in the **Grant** section, select **0 controls selected**.
 
-2.  On [***SEA-WS***](urn:gd:lg:a:select-vm)2, on the taskbar,
-    select **Microsoft Edge**. In Microsoft Edge,
-    type [**outlook.office.com**](urn:gd:lg:a:send-vm-keys) and then
-    press Enter.
+9. Select **Grant access**, select the **Require device to be marked as compliant** check box, and then select **Select**.
 
-3.  On the pick an account dialog box,
-    select !!**Cindy@M365xXXXXXXX.onmicrosoft.com!!**
+    ![](media/media/image22.png)
 
-4.  On the **Enter password** page, enter !!**P@55w.rd12345!!** and
-    select **Sign in**. If the Microsoft Edge Save password prompt
-    appears, select **Update**.
+10. On the **New** blade, set **Enable policy** to **On** and then select **Create**.
 
-> ![A screenshot of a computer error Description automatically
-> generated](media/media/image24.png)
+    ![](media/media/image23.png)
 
-5.  Verify that you receive the message **"** **Sign in with your work
-    account"**.
+    > **Note:** Allow about 5 minutes for the new policy to take effect before testing.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image25.png)
+### Task 2: Verify that access is blocked from an unmanaged device
 
-6.  Select **More details**. You should see more information about why
-    you are blocked.
+SEA-SVR1 is a Windows device that is **not** enrolled in Intune, so it has no compliance status. You use it to test what happens when Cindy signs in from an unmanaged device.
 
-> ![A screenshot of a computer error Description automatically
-> generated](media/media/image26.png)
->
-> **Note**: This is because SEA-WS3 is not joined to Microsoft Entra ID
-> and not managed by Microsoft Intune, so not marked as compliant.
+1. On **SEA-SVR1**, in Microsoft Edge, press **Ctrl+Shift+N** to open an **InPrivate** window.
 
-7.  **Close** the browser window.
+2. In the InPrivate window, go to **https://outlook.office.com**.
 
-8.  Switch to [***SEA-WS1***](urn:gd:lg:a:select-vm), and sign in as
-    !!**Cindy@M365xXXXXXXX.onmicrosoft.com!!** with **password** page,
-    enter !!**P@55w.rd12345!!** 
+3. Sign in as **Cindy@M365xXXXXXXX.onmicrosoft.com** (substitute **XXXXXXX** with your tenant name) with the password **P@55w.rd1234**.
 
-> **Note**: SEA-WS1 is a managed Windows 11 device that is enrolled in
-> Intune.
+    ![](media/media/image24.png)
 
-9.  On the taskbar, select **Microsoft Edge**. In Microsoft Edge,
-    type [**Outlook.office.com**](urn:gd:lg:a:send-vm-keys) and then
-    press **Enter**.
+4. Verify that access is blocked, and that you receive a message that the device does not meet your organization's requirements, such as **You can't get there from here**.
 
-10. Verify that you can access Cindy's mailbox.
+    ![](media/media/image25.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image27.png)
->
-> **Note**: This is because **SEA-WS1** is a managed device and marked
-> as compliant.
+5. Select **More details**. You should see more information about why you are blocked.
 
-11. Close Microsoft Edge and sign out
-    of [***SEA-WS1***](urn:gd:lg:a:select-vm).
+    ![](media/media/image26.png)
 
-Task 3: Disable the conditional access policy
+    > **Note:** Cindy is blocked because SEA-SVR1 is not joined to Microsoft Entra ID and not managed by Microsoft Intune, so it is not marked as compliant.
 
-1.  On [***SEA-SVR1***](urn:gd:lg:a:select-vm), in the **Microsoft
-    Intune admin center** !\!<https://intune.microsoft.com>!!
-    select **Devices**, then select **All devices**.
+6. Close the InPrivate window.
 
-> ![](media/media/image28.png)
->
-> Notice that **SEA-WS1** is compliant, which is why Cindy was allowed
-> to access his mailbox.
+### Task 3: Verify that access is allowed from a compliant device
 
-2.  From the navigation pane select **Devices**, then
-    select **Conditional access**.
+1. Switch to **SEA-WS1**, and sign in as **Cindy White** with the PIN **102938**.
 
-> ![](media/media/image29.png)
+    > **Note:** SEA-WS1 is a managed Windows 11 device that is enrolled in Intune and marked as compliant.
 
-3.  On the **Conditional Access** page, select **Policies**, then click
-    on **Conditional1**.
+2. On the taskbar, select **Microsoft Edge**. In Microsoft Edge, type **https://outlook.office.com** and then press **Enter**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image30.png)
+3. If prompted, sign in as **Cindy@M365xXXXXXXX.onmicrosoft.com**. Verify that you can access Cindy's mailbox.
 
-4.  On the **Conditional1** page, at the bottom of the page,
-    select **Off** and then select **Save**.
+    ![](media/media/image27.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image31.png)
+    > **Note:** Cindy is allowed because **SEA-WS1** is a managed device that is marked as compliant.
 
-5.  Close Microsoft Edge.
+4. Close Microsoft Edge and sign out of **SEA-WS1**.
 
-**Results**: After completing this exercise, you will have successfully
-configured a conditional access policy to determine device compliance.d
+### Task 4: Disable the Conditional Access policy
+
+1. On **SEA-SVR1**, in the **Microsoft Intune admin center**, select **Devices**, then select **All devices**.
+
+    ![](media/media/image28.png)
+
+    Notice that **SEA-WS1** is compliant, which is why Cindy was allowed to access her mailbox.
+
+2. From the navigation pane, select **Devices**, then select **Conditional access**.
+
+    ![](media/media/image29.png)
+
+3. On the **Conditional Access** page, select **Policies**, then select **Conditional1**.
+
+    ![](media/media/image30.png)
+
+4. On the **Conditional1** page, at the bottom of the page, select **Off** and then select **Save**.
+
+    ![](media/media/image31.png)
+
+5. Close Microsoft Edge.
+
+**Results**: After completing this exercise, you will have successfully configured a Conditional Access policy that uses device compliance to control access to email.

@@ -1,168 +1,167 @@
 # Lab 19 – Configure VPN Policies for Android Devices
 
-**Summary**
+### Summary
 
-In this lab, you will configure and deploy **VPN policies for Android
-devices** using Microsoft Intune. You will create a VPN configuration
-profile, assign it to a device/user group, and validate the VPN settings
-on an enrolled Android device. This lab helps Contoso IT administrators
-securely connect mobile users to corporate resources.
+In this lab, you will configure **Microsoft Tunnel** and a **VPN policy for Android devices** using Microsoft Intune. You will create a Microsoft Tunnel server configuration and site, create a VPN configuration profile that uses them, assign the profile to a user group, and review its deployment status. This lab helps Contoso IT administrators prepare secure connectivity for mobile users to corporate resources.
 
-------------------------------------------------------------------------
+### Prerequisites
 
-**Scenario**
+The following lab(s) must be completed before this lab:
 
-Contoso employees use Android devices to access internal corporate
-resources while working remotely. To ensure secure connectivity, Contoso
-wants to push VPN settings automatically to all user devices. Instead of
-manually configuring VPN profiles on each device, Contoso IT will deploy
-Intune VPN configuration profiles for centralized control.
+- Lab #1-Set up Microsoft Intune
+- Lab #10-Enable Mobile Application Management (MAM) *(recommended — creates the **Contoso MAM Users** group)*
 
-You have been assigned to create and deploy a VPN policy for Contoso’s
-Android users.
+> **Note:** This lab configures Microsoft Tunnel and the Android VPN profile in Intune. A working VPN connection also needs a Linux server running the Microsoft Tunnel Gateway software and an Android device enrolled in Intune with Android Enterprise, neither of which is part of this lab environment. You will therefore create and assign the configuration, and review where its deployment status is reported, without connecting a device.
 
-------------------------------------------------------------------------
+### Scenario
+
+Contoso employees use Android devices to access internal corporate resources while working remotely. To ensure secure connectivity, Contoso wants to push VPN settings automatically to all user devices. Instead of manually configuring VPN profiles on each device, Contoso IT will deploy Intune VPN configuration profiles for centralized control.
+
+You have been assigned to create and deploy a VPN policy for Contoso's Android users.
 
 ## Exercise 1: Create a VPN Configuration Profile for Android
 
-### Task 1: Configure Microsoft Tunnel gateway
+### Task 1: Configure the Microsoft Tunnel Gateway
 
-1.  Sign in to the **Microsoft Intune admin center**.
+1. On **SEA-SVR1**, sign in to the **Microsoft Intune admin center** (**https://intune.microsoft.com**) as the tenant admin.
 
-> ![](media/media/image1.png)
+    ![](media/media/image1.png)
 
-2.  On the left side navigation pane, choose Tenant administrator
+2. In the left navigation pane, select **Tenant administration**.
 
-![](media/media/image2.png)
+    ![](media/media/image2.png)
 
-3.  Choose **Microsoft Tunnel Gateway.**
+3. Select **Microsoft Tunnel Gateway**.
 
-![](media/media/image3.png)
+    ![](media/media/image3.png)
 
-4.  On the **Tenant admin | Microsoft Tunnel** Gateway page, select
-    **Server configurations and click** + Create new  
+4. On the **Tenant admin | Microsoft Tunnel Gateway** page, select the **Server configurations** tab and click **+ Create new**.
+
     ![](media/media/image4.png)
 
-5.  Enter the following details and click **Next  
-    Name:** Contoso VPN Server
+5. Enter the following details and click **Next**:
 
-**Description:** This server acts as the gateway endpoint for Microsoft
-Tunnel, allowing Android and Windows devices to establish encrypted
-connections to the corporate network
+    - Name: **Contoso VPN Server**
+    - Description: **This server acts as the gateway endpoint for Microsoft Tunnel, allowing Android devices to establish encrypted connections to the corporate network**
 
-![](media/media/image5.png)
+    ![](media/media/image5.png)
 
-6.  On the settings tab, leave the IP address to default, enter the
-    following details and click **Next.**
+6. On the **Settings** tab, leave the IP address range at the default, enter the following details, and click **Next**:
 
-Server port: **443**
+    - Server port: **443**
+    - DNS servers: **8.8.8.8**
 
-DNS Server Address: **8.8.8.8**
+    ![](media/media/image6.png)
 
-![](media/media/image6.png)
+7. On the **Scope tags** tab, click **Next**.
 
-7.  On the Scope tags, Click **Next.**
+    ![](media/media/image7.png)
 
-![](media/media/image7.png)
+8. On the **Review + create** tab, click **Create**.
 
-8.  On the **Review + create** tab, click **Create.**  
     ![](media/media/image8.png)
 
-9.  Once the Server is created, we will now create site. Go to sites
-    tab.
+9. Once the server configuration is created, create a site. Select the **Sites** tab.
 
-![](media/media/image9.png)
+    ![](media/media/image9.png)
 
-10. On the sites page, click **Create**.
+10. On the **Sites** page, click **+ Create**.
 
-![](media/media/image10.png)
+    ![](media/media/image10.png)
 
-11. Enter the following details and click **Next.**
+11. Enter the following details and click **Next**:
 
-> Name: **Contoso secure access site**
->
-> ![](media/media/image11.png)
+    - Name: **Contoso secure access site**
 
-12. On the settings page enter the following details and click **Next.**
+    ![](media/media/image11.png)
 
-Public IP address: **vpn.contoso.com**
+12. On the **Settings** tab, enter the following details and click **Next**:
 
-Server Configuration: **Contoso VPN Server**
+    - Public IP address or FQDN: **vpn.contoso.com**
+    - Server configuration: **Contoso VPN Server**
 
-**  
-**![](media/media/image12.png)
+    ![](media/media/image12.png)
 
-13. For scopes click **Next** on the Review + Create page click
-    **Create.**
+    > **Note:** In production, this is the public address that Android devices use to reach your Tunnel Gateway server. **vpn.contoso.com** is a placeholder for this lab.
 
-![](media/media/image13.png)
+13. On the **Scope tags** tab, click **Next**, and then on the **Review + create** tab, click **Create**.
 
-![](media/media/image14.png)
+    ![](media/media/image13.png)
 
-### Task 2: Create a New VPN Profile
+    ![](media/media/image14.png)
 
-1.  In the left navigation pane, select **Devices**.
+### Task 2: Create a new VPN profile
 
-> ![](media/media/image15.png)
+1. In the left navigation pane, select **Devices**.
 
-14. Under **By platform**, choose **Android**.
+    ![](media/media/image15.png)
 
-> ![](media/media/image16.png)
+2. Under **By platform**, choose **Android**.
 
-15. Select **Configuration profiles**.
+    ![](media/media/image16.png)
 
-> ![](media/media/image17.png)
+3. Select **Configuration profiles**.
 
-16. Click **+ Create profile**.
+    ![](media/media/image17.png)
 
-> ![](media/media/image18.png)
+4. Click **+ Create profile**.
 
-17. Set the Platform to ***Android Enterprise***, choose ***Templates***
-    as the profile type, select ***VPN*** as the template, and then
-    click ***Create***.
+    ![](media/media/image18.png)
 
-![](media/media/image19.png)
+5. Set the platform to **Android Enterprise**, choose **Templates** as the profile type, select **VPN** as the template, and then click **Create**.
 
-18. On the Basics tab enter the following details and click **Next.**
+    ![](media/media/image19.png)
 
-- **Name:** Contoso – Android VPN Policy
+    > **Note:** Choose the **VPN** template listed under **Fully Managed, Dedicated, and Corporate-Owned Work Profile** or **Personally-Owned Work Profile**, to match how your Android devices are enrolled.
 
-- **Description:** Deploys VPN settings to Contoso Android users.  
-  ![](media/media/image20.png)
+6. On the **Basics** tab, enter the following details and click **Next**:
 
-19. On the Configuration tab choose the following options and click
-    **Next**
+    - Name: **Contoso – Android VPN Policy**
+    - Description: **Deploys VPN settings to Contoso Android users.**
 
-> **Connection type – Microsoft Tunnel**
->
-> **Connection Name - Contoso VPN**
->
-> **Microsoft Tunnel site – Contoso secure access site**
+    ![](media/media/image20.png)
 
-![](media/media/image21.png)
+7. On the **Configuration settings** tab, choose the following options and click **Next**:
 
-20. On the Assignments tab, under included groups we can either select
-    specific groups or select All users, choose **All users** and click
-    **Next.**
+    - Connection type: **Microsoft Tunnel**
+    - Connection name: **Contoso VPN**
+    - Microsoft Tunnel site: **Contoso secure access site**
 
-![](media/media/image22.png)
+    ![](media/media/image21.png)
 
-21. On the Review + Create tab check all the details and click
-    **Create.**
+    > **Note:** On Android, the **Microsoft Defender for Endpoint** app acts as the Microsoft Tunnel client. In production, you also deploy that app to the same users.
 
-![](media/media/image23.png)
+8. On the **Assignments** tab, under **Included groups**, select **+ Add groups**, select **Contoso MAM Users**, choose **Select**, and then click **Next**.
 
-![](media/media/image24.png)
+    ![](media/media/image22.png)
+
+    > **Note:** If you did not complete Lab 10, create a **Security** group named **Contoso MAM Users** with **Assigned** membership and add **Cindy White** to it (**Groups → New group**). Assigning to a specific group rather than **All users** keeps the pilot limited to the users you choose.
+
+9. On the **Review + create** tab, check all the details and click **Create**.
+
+    ![](media/media/image23.png)
+
+    ![](media/media/image24.png)
+
+### Task 3: Review the VPN profile deployment status
+
+1. In the **Microsoft Intune admin center**, go to **Devices → Android → Configuration profiles** and select **Contoso – Android VPN Policy**.
+
+2. On the profile **Overview** page, review the **Device and user check-in status** chart and the **Device status** and **User status** reports.
+
+    > **Note:** Because no Android Enterprise devices are enrolled in this lab environment, the counts show **0**. When an enrolled Android device for a member of **Contoso MAM Users** checks in, it appears here as **Succeeded**, **Error**, or **Conflict**.
+
+3. Go to **Tenant administration → Microsoft Tunnel Gateway** and select the **Health status** tab.
+
+    > **Note:** No servers are listed because no Linux server has been installed with the Tunnel Gateway software. In production, each server you install appears here with its health checks.
 
 **Results**
 
 After completing this lab, you will have:
 
-- Created a VPN configuration profile for Android devices
+- Created a Microsoft Tunnel server configuration and site
+- Created a VPN configuration profile for Android Enterprise devices
+- Assigned the VPN policy to a user group
+- Reviewed where VPN profile deployment and Tunnel server health are monitored
 
-- Assigned VPN policies to user/device groups
-
-- Monitored VPN deployment and compliance
-
-Contoso Android users can now securely access corporate resources
-through an automatically configured VPN connection.
+Contoso is now ready to deliver VPN settings automatically to Android users as soon as a Tunnel Gateway server is installed and devices are enrolled.

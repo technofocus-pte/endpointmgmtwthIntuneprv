@@ -1,257 +1,214 @@
 # Lab 16 – Exploring Copilot in Intune (Security Copilot Integration)
 
-**Summary**
+### Summary
 
-In this lab, you will explore **Microsoft Copilot in Intune**, powered
-by **Microsoft Security Copilot**. Copilot in Intune uses generative AI
-to help you analyze your Intune data, summarize device and policy
-configurations, troubleshoot issues, and take action
+In this lab, you will explore **Microsoft Copilot in Intune**, powered by **Microsoft Security Copilot**. Copilot in Intune uses generative AI to help you analyze your Intune data, summarize device and policy configurations, troubleshoot issues, and take action.
 
-These capabilities are built into the Intune admin center and provide
-intelligent assistance for endpoint management, policy creation, and
-troubleshooting.  
-Microsoft states that Copilot in Intune helps manage policies and
-settings, understand security posture, and troubleshoot device issues by
-exploring Intune data with natural language.
+These capabilities are built into the Intune admin center and provide intelligent assistance for endpoint management, policy creation, and troubleshooting by exploring Intune data with natural language.
 
-------------------------------------------------------------------------
+### Prerequisites
 
-**Prerequisites**
+Before beginning this lab, you need:
 
-Before beginning this lab:
+- The tenant admin account with the **Global Administrator** role. Security Copilot must be set up the first time by a Global Administrator or Security Administrator.
+- An **Azure subscription** in the same tenant, where your account has the **Owner** or **Contributor** role. Security Copilot capacity is billed to this subscription.
+- **SEA-WS1** enrolled in Intune, and the earlier labs completed, so that Copilot has policies, groups, and apps to report on.
 
-- You must have one of these roles:
+> **Important:** Security Copilot capacity is billed **per hour** for as long as it exists, whether or not you use it. Complete **Exercise 4** at the end of this lab to delete the capacity and stop the charges.
 
-  - Global Administrator
+### Scenario
 
-  - Intune Administrator
-
-  - A Security Copilot role granting Intune access
-
-- At least **one enrolled Windows 11 device** (SEA‑WS1)
-
-- Intune tenant with Copilot enabled:
-
-  - Intune admin center → **Tenant administration → Copilot** (verify
-    status)
-    [\[learn.microsoft.com\]](https://learn.microsoft.com/en-us/entra/identity/users/users-bulk-download)
-
-------------------------------------------------------------------------
-
-**Scenario**
-
-Contoso wants to explore how AI can help endpoint administrators work
-more efficiently. With **Copilot in Intune**, IT admins can:
+Contoso wants to explore how AI can help endpoint administrators work more efficiently. With **Copilot in Intune**, IT admins can:
 
 - Summarize policies
-
-- Query device/app/compliance data in natural language
-
+- Query device, app, and compliance data in natural language
 - Troubleshoot devices
-
-- Create groups and take action directly from results
-
-- Explore Intune data via the **Explorer** interface
-
+- Explore Intune data from the standalone Security Copilot experience
 - Get recommendations and insights from Copilot summaries
 
-Microsoft’s documentation confirms that Copilot in Intune allows admins
-to “explore Intune data, troubleshoot issues, manage settings, and take
-action using natural language,” including the new Explorer experience
-that queries Intune’s data platform.
-[\[github.com\]](https://github.com/MicrosoftDocs/entra-docs/blob/main/docs/identity/users/users-bulk-download.md)
+## Exercise 1: Set Up and Access Copilot in Intune
 
-------------------------------------------------------------------------
+### Task 1: Set up your Security Copilot capacity
 
-## Exercise 1: Access Copilot in Intune
+1. On **SEA-SVR1**, open Microsoft Edge and go to the Azure portal at **https://portal.azure.com**. Sign in with the tenant admin account.
 
-### Task 1: Set up your Copilot capacity.
+    ![](media/media/image1.png)
 
-1.  Navigate to Azure portal following the URL
-    <https://portal.azure.com>
+2. In the search bar, search for and select **Microsoft Security Compute Capacities**.
 
-![](media/media/image1.png)
+    ![](media/media/image2.png)
 
-2.  On the Azure portal on the search bar, search for **Microsoft
-    Security compute capacities**
+3. Click **+ Create**.
 
-![](media/media/image2.png)
+    ![](media/media/image3.png)
 
-3.  Click Create to create **SCC’s**.
+4. On the **Basics** tab, enter the following details:
 
-![](media/media/image3.png)
+    - Subscription: your Azure subscription
+    - Resource group: select **Create new** and enter **Rg4Intune**
+    - Capacity name: **SCC4Intune**
+    - Prompt evaluation location: the location closest to you (for example, **United States**)
+    - Security compute units: **1**
 
-4.  On the basics tab enter the following details
+    ![](media/media/image4.png)
 
-Resource group create new: **Rg4Intune**
+5. Select the acknowledgement check box and click **Review + create**.
 
-Capacity name : **SCC4Intune**
+    ![](media/media/image5.png)
 
-![](media/media/image4.png)
+6. Click **Create**.
 
-5.  Click on the checkbox for acknowledgement and click Review+Create
+    ![](media/media/image6.png)
 
-![](media/media/image5.png)
+7. When the deployment is complete, click **Finish setup in Security Copilot**.
 
-6.  Click Create.
+    ![](media/media/image7.png)
 
-![](media/media/image6.png)
+8. On the Security Copilot page, click **Get started**.
 
-7.  Once the Secure compute capacities are deployed click on the
-    **Finish setup in Security Copilot.**
+    ![](media/media/image8.png)
 
-![](media/media/image7.png)
+9. Enter a workspace name such as **SCC4Intune-<your initials>**, select the same location as your capacity (for example, **United States**), and click **Continue**.
 
-8.  On the Security Copilot page click on **Get Started.**
+    ![](media/media/image9.png)
 
-![](media/media/image8.png)
+10. Select the **SCC4Intune** capacity that you created in the Azure portal and click **Continue**.
 
-9.  Enter Workspace name as **SCC4Intune2702,** select location as
-    **United states** and click **Continue.**
+    ![](media/media/image10.png)
 
-![](media/media/image9.png)
+11. Review the data sharing and logging options and click **Continue** on each page.
 
-10. Select the capacity that we have created in the Azure portal and
-    click Continue.
+    ![](media/media/image11.png)
 
-![](media/media/image10.png)
+    ![](media/media/image12.png)
 
-11. Click Continue
+    ![](media/media/image13.png)
 
-![](media/media/image11.png)
+12. On the **Assign roles** page, click **Continue**.
 
-![](media/media/image12.png)
+    ![](media/media/image14.png)
 
-![](media/media/image13.png)
+13. Click **Finish**.
 
-12. Click Continue on the assign roles page
+    ![](media/media/image15.png)
 
-![](media/media/image14.png)
+    ![](media/media/image16.png)
 
-13. Click **Finish**
+### Task 2: Open Copilot in Intune
 
-![](media/media/image15.png)
+1. Open a new tab, sign in to the **Microsoft Intune admin center** (**https://intune.microsoft.com**), and select **Copilot** at the top of the page.
 
-![](media/media/image16.png)
+    ![](media/media/image17.png)
 
-### Task 2: Open Copilot
+    > **Note:** If Copilot is not available yet, wait a few minutes after finishing the Security Copilot setup, and then refresh the page.
 
-1.  Sign in to the **Microsoft Intune admin center**. select
-    **Copilot**.
+2. Verify that Copilot loads with:
 
-> ![](media/media/image17.png)
-
-2.  Verify that Copilot loads with:
-
-    - Chat panel
-
+    - The chat panel
     - Suggested prompts
 
-    - Explorer option (if enabled)
-
-> ![](media/media/image18.png)
-
-------------------------------------------------------------------------
+    ![](media/media/image18.png)
 
 ## Exercise 2: Explore Copilot Chat in Intune
 
-### Task 1: Ask General Environment Questions
+### Task 1: Ask general environment questions
 
-1.  In the Copilot chat panel, enter the following prompt:
+1. In the Copilot chat panel, enter the following prompt:
 
-- **“Summarize my current Intune device compliance posture.”**
+    ```text
+    Summarize my current Intune device compliance posture.
+    ```
 
-> ![](media/media/image19.png)
+    ![](media/media/image19.png)
 
-2.  Copilot will respond with references.
+2. Review Copilot's response and its references.
 
-![](media/media/image20.png)
+    ![](media/media/image20.png)
 
-3.  Now lets run the following prompt to know about the devices that
-    will need updates
+3. Enter the following prompt to see which devices need updates:
 
-- **“Show me devices that need updates.”**
+    ```text
+    Show me devices that need updates.
+    ```
 
-> ![](media/media/image21.png)
+    ![](media/media/image21.png)
 
-Copilot uses Intune data to provide summaries, insights, and recommended
-actions based on results
+    Copilot uses Intune data to provide summaries, insights, and recommended actions based on the results.
 
-------------------------------------------------------------------------
+### Task 2: Use Copilot to understand an existing policy
 
-### Task 2: Use Copilot to Understand an Existing Policy
+1. Go to **Devices → Configuration**, and select the **Contoso Developer - standard** profile from Lab 6.
 
-1.  Go to **Devices → Configuration profiles**.
+2. On the profile page, select **Summarize with Copilot**.
 
-2.  Click **Copilot → Summarize policy**.
+    ![](media/media/image22.png)
 
-> ![](media/media/image22.png)
+3. Review the summary. Copilot generates:
 
-Copilot will generate:
+    - A human-readable explanation of the policy
+    - Key security details
+    - Suggested improvements
 
-- A human-readable explanation
+    ![](media/media/image23.png)
 
-- Key security details
+    ![](media/media/image24.png)
 
-- Suggested improvements (as per the Copilot in Intune feature overview)
+    > **Note:** If Copilot returns an error about capacity, you have used up the available security compute units for this hour. In the Azure portal, open the **SCC4Intune** capacity and increase the number of **security compute units**, or wait until the next hour and try again.
 
-> ![](media/media/image23.png)
->
-> ![](media/media/image24.png)
->
-> **Note**: if copilot throws error about capacity, we will need to
-> increase the Secure compute capacity
->
-> ![](media/media/image25.png)
->
-> ![](media/media/image26.png)
+    ![](media/media/image25.png)
 
-------------------------------------------------------------------------
+    ![](media/media/image26.png)
 
-## Exercise 3: Explore the Copilot “stand alone” Experience
+## Exercise 3: Explore the Standalone Security Copilot Experience
 
-------------------------------------------------------------------------
+### Task 1: Explore Intune data using Security Copilot
 
-### Task 1: Exploring Intune Data Using Security Copilot
+1. In Microsoft Edge, go to **https://securitycopilot.microsoft.com**.
 
-1.  Navigate to Microsoft Security Copilot page.
+2. In the prompt bar, select the **Sources** icon and ensure that the **Microsoft Intune** plugin is turned **On**.
 
-2.  Enter the following prompt to get information on all the groups and
-    devices enrolled in Intune.
+3. Enter the following prompt to get information about the groups and apps in Intune:
 
-> **Show me all Intune groups and all Intune apps in my tenant. For each
-> group, list the name, type (Security/M365), membership type
-> (Assigned/Dynamic), member count, and what Intune assignments are
-> using that group.**
->
-> ![](media/media/image27.png)
->
-> ![](media/media/image27.png)
->
-> ![](media/media/image28.png)
+    ```text
+    Show me all Intune groups and all Intune apps in my tenant. For each group, list the name, type (Security/M365), membership type (Assigned/Dynamic), member count, and what Intune assignments are using that group.
+    ```
 
-3.  Security Copilot also suggests prompts, select any of those
-    prompts.  
-    here we have selected the prompt to see the apps installed on
-    SEA-WS1 virtual machine.
+    ![](media/media/image27.png)
 
-> ![](media/media/image29.png)
+    ![](media/media/image28.png)
 
-4.  Since there are no apps installed on the VM copilot has responded
-    the same.
+    Notice that the response includes the groups and apps you created in earlier labs, such as **Contoso Developer devices** and **7-Zip**.
 
-> ![](media/media/image30.png)
+4. Security Copilot also suggests follow-up prompts. Select the suggested prompt that shows the apps installed on **SEA-WS1**.
 
-### Summary
+    ![](media/media/image29.png)
 
-> After completing this lab, you have:
+5. Review the response.
 
-- Explored and enabled Copilot in Intune
+    ![](media/media/image30.png)
 
-- Used Copilot chat to analyze Intune settings, compliance, and devices
+    > **Note:** The response depends on which earlier labs you completed. If you completed Lab 12, **7-Zip** appears in the list. If no apps have been deployed to SEA-WS1, Copilot reports that no apps are installed.
 
-- Learned how Security Copilot enhances intelligence and insight within
-  Intune
+## Exercise 4: Clean up the Security Copilot capacity
 
-> With these capabilities, Contoso administrators can now leverage AI to
-> dramatically reduce troubleshooting time and improve decision-making.
+### Task 1: Delete the capacity to stop charges
+
+1. In the Azure portal, search for and select **Resource groups**.
+
+2. Select the **Rg4Intune** resource group, and then select **Delete resource group**.
+
+3. Enter **Rg4Intune** to confirm, and then select **Delete**.
+
+    > **Note:** Deleting the capacity stops the hourly charges. Copilot in Intune and Security Copilot stop working until a new capacity is created.
+
+### Results
+
+After completing this lab, you will have:
+
+- Set up Security Copilot capacity and enabled Copilot in Intune
+- Used Copilot chat to analyze Intune compliance, updates, and devices
+- Summarized an existing configuration policy with Copilot
+- Queried Intune data from the standalone Security Copilot experience
+- Deleted the Security Copilot capacity to stop charges
+
+With these capabilities, Contoso administrators can leverage AI to reduce troubleshooting time and improve decision-making.
