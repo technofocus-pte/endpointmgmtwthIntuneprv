@@ -1,571 +1,406 @@
-**Lab 6 - Create and Deploy Configuration Policies**
+# Lab 6 - Create and Deploy Configuration Policies
 
-**Summary**
+### Summary
 
-In this lab, we will use Microsoft Intune to create and apply a
-Configuration profile for a Windows 11 device.
+In this lab, we will use Microsoft Intune to create and apply a Configuration profile for a Windows 11 device.
 
-**Prerequisites**
+### Prerequisites
 
-To following lab(s) must be completed before this lab:
+The following lab(s) must be completed before this lab:
 
-- Lab \#1-Set up Microsoft Intune
+- Lab #1-Set up Microsoft Intune
+- Lab #2-Manage Microsoft Entra Device registration
+- Lab #3-Configure and manage Device Enrollment into Microsoft Intune
+- Lab #4-Enrolling devices into Microsoft Intune
 
-- Lab \#2-Manage Microsoft Entra Device registration
+> **Note:** You will also need a mobile phone that can receive text messages used to secure Windows Hello sign-in authentication to Microsoft Entra ID.
 
-- Lab \#3-Configure and manage Device Enrollment into Microsoft Intune
+## Exercise 1: Create and apply a Configuration profile
 
-- Lab \#4-Enrolling devices into Microsoft Intune
+### Scenario
 
-Note: You will also need a mobile phone that can receive text messages
-used to secure Windows Hello sign in authentication to Microsoft Entra
-ID.
-
-**Exercise 1: Create and apply a Configuration profile.**
-
-**Scenario**
-
-You need to use Microsoft Entra and Microsoft Intune to manage members
-of the Developers department at Contoso. You have been asked to evaluate
-the solutions that would enable the users to work effectively and
-securely on Windows 11 devices. Cindy White has volunteered to help you
-test and evaluate the solution and provide feedback. He has also given
-you some initial requirements that must be included and applied to the
-developer's Windows devices:
+You need to use Microsoft Entra and Microsoft Intune to manage members of the Developers department at Contoso. You have been asked to evaluate the solutions that would enable the users to work effectively and securely on Windows 11 devices. Cindy White has volunteered to help you test and evaluate the solution and provide feedback. She has also given you some initial requirements that must be included and applied to the developers' Windows devices:
 
 - The Gaming section in Settings should not be visible.
-
-- The Privacy section in Settings should be restricted as much as
-  possible.
-
+- The Privacy section in Settings should be restricted as much as possible.
 - The **C:\DevProjects** folder must be excluded from Windows Defender.
-
 - The process devbuild.exe must be excluded from Windows Defender.
+- Most used apps and Recently added apps should not be displayed on the Start menu.
 
-- Most used apps and Recently added apps should not be displayed on the
-  Start menu.
+### Task 1: Verify device settings
 
-**Task 1: Verify device settings**
+1. Sign in to **SEA-WS1** as **Cindy White** using her credentials **Cindy@M365xXXXXXXX.onmicrosoft.com** with the PIN **102938** or password **P@55w.rd1234**.
 
-1.  Sign in
-    to [*SEA-WS1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10) as **Cindy**
-    White using her credentials
-    !!**Cindy@M365xXXXXXX.onmicrosoft.com**!! with the
-    PIN !!**102938**!! or Password !!**P@55w.rd1234**!!
+    ![](media/media/image1.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image1.png)
+2. On the taskbar, select **Start** and then select **Settings**.
 
-2.  On the taskbar, select **Start** and then select **Settings**.
+    ![](media/media/image2.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image2.png)
+3. In the **Settings** navigation list, verify that you can see the **Gaming** setting.
 
-3.  On the **Settings** navigation list, verify that you can see
-    the **Gaming** setting.
+    ![](media/media/image3.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image3.png)
+4. Select the **Personalization** setting and then, on the Personalization page, select **Start**. Make a note of the **Show recently added apps** and **Show most used apps** settings.
 
-4.  Select the **Personalization** setting and then on the
-    Personalization page, select **Start**. Make a note of **Show
-    recently added apps** and **Show most used apps** settings.
+    ![](media/media/image4.png)
 
-![](media/media/image4.png)
+    ![](media/media/image5.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image5.png)
+5. In the **Settings** app, select **Privacy & security**.
 
-5.  In the **Settings** app, select **Privacy & security**.
+6. On the **Privacy & security** page, take note of the options under **Security**, **Windows permissions**, and **App permissions**.
 
-6.  On the **Privacy & security** page, take note of the options
-    under **Security**, **Windows permissions**, and **App
-    permissions**.
+    ![](media/media/image6.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image6.png)
+7. On the **Privacy & security** page, select **Windows Security** and then select **Open Windows Security**.
 
-7.  On the **Privacy & security** page, select **Windows Security** and
-    then select **Open Windows Security**.
+    ![](media/media/image7.png)
 
-![](media/media/image7.png)
+    ![](media/media/image8.png)
 
-![A screenshot of a computer security Description automatically
-generated](media/media/image8.png)
+8. On the **Windows Security** page, select **Virus & threat protection**.
 
-8.  On the **Windows Security** page, select **Virus & threat
-    protection**.
+9. On the **Virus & threat protection** page, under **Virus & threat protection settings**, select **Manage settings**.
 
-9.  On the **Virus & threat protection** page, under **Virus & threat
-    protection settings**, select **Manage settings**.
+    ![](media/media/image9.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image9.png)
+10. Scroll down to **Exclusions** and select **Add or remove exclusions**. In the User Account Control dialog box, select **Yes**.
 
-10. Scroll down to **Exclusions** and select **Add or remove
-    exclusions**. On User Account Control dialog box, select **Yes**.
+    ![](media/media/image10.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image10.png)
+    ![](media/media/image11.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image11.png)
+11. On the **Exclusions** page, verify that no exclusions have been configured.
 
-11. On the **Exclusions** page, verify that no exclusions have been
-    configured.
+12. Close the **Windows Security** window.
 
-12. Close the **Windows Security** window.
+    ![](media/media/image12.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image12.png)
+13. Close the **Settings** window.
 
-13. Close the **Settings** window.
+### Task 2: Create a Configuration profile based on scenario requirements
 
-**Task 2: Create a Configuration profile based on scenario
-requirements**
+1. Switch to **SEA-SVR1**.
 
-1.  Switch
-    to [*SEA-SVR1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10).
+2. Switch back to the tab with the **Microsoft Intune admin center** open, and select **Devices** from the navigation bar.
 
-2.  Switch back to the tab with the **Microsoft Intune admin center**
-    open, select **Devices** from the navigation bar.
+    ![](media/media/image13.png)
 
-![](media/media/image13.png)
+3. On the **Devices | Overview** page, select **Windows** as shown in the below image.
 
-3.  On the **Devices | Overview** page, select **Windows** as shown in
-    the below image.
+    ![](media/media/image14.png)
 
-![](media/media/image14.png)
+4. On the **Windows | Windows devices** page, navigate and click on **Configuration profiles**.
 
-4.  On the **Windows | Windows devices** page, navigate and click on
-    **Configuration profiles**.
+    ![](media/media/image15.png)
 
-![](media/media/image15.png)
+5. On the **Windows | Configuration profiles** page, in the **Policies** tab, click on **+ Create** and select **+ New Policy**.
 
-5.  On the **Windows | Configuration profiles** page, in the
-    **Policies** tab, click on **+ Create** and select **+ New Policy**.
+    ![](media/media/image16.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image16.png)
+6. In the **Create a profile** pane that appears on the right side, select the following options, and then select **Create**:
 
-6.  In the **Create a profile** pane that appears on the right side,
-    select the following options, and then select **Create**:
+    - Platform: **Windows 10 and later**
+    - Profile type: **Templates**
+    - Template name: **Device restrictions**
 
-- Platform: **Windows 10 and later**
+    ![](media/media/image17.png)
 
-- Profile type: **Templates**
+7. On the **Basics** blade, enter the following information, and then select **Next**:
 
-- Template name: !!!!
+    - Name: **Contoso Developer - standard**
+    - Description: **Basic restrictions and configuration for Contoso Developers.**
 
-![A screenshot of a profile Description automatically
-generated](media/media/image17.png)
+    ![](media/media/image18.png)
 
-7.  In the **Basics** blade, enter the following information, and then
-    select **Next**:
+8. On the **Configuration settings** blade, expand **Control Panel and Settings**.
 
-- Name: !!Contoso Developer - standard!!
+    ![](media/media/image19.png)
 
-- Description: !!Basic restrictions and configuration for Contoso
-  Developers.!!
+9. Select **Block** next to the **Gaming** and **Privacy** options.
 
-![](media/media/image18.png)
+    ![](media/media/image20.png)
 
-8.  On the **Configurations settings** blade, expand **Control Panel and
-    Settings**.
+10. On the **Device restrictions** blade, expand **Start**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image19.png)
+    ![](media/media/image21.png)
 
-9.  Select **Block** next to the **Gaming** and **Privacy** options.
+11. Scroll down and select **Block** next to **Most used apps**, **Recently added apps** and **Recently opened items in Jump Lists**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image20.png)
+    ![](media/media/image22.png)
 
-10. On the **Device restrictions** blade, expand **Start**.
+12. On the **Device restrictions** blade, scroll down and expand **Microsoft Defender Antivirus**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image21.png)
+    ![](media/media/image23.png)
 
-11. Scroll down and select **Block** next to **Most used
-    apps**, **Recently added apps** and **Recently opened items in Jump
-    Lists**.
+13. Under **Microsoft Defender Antivirus**, scroll down and expand **Microsoft Defender Antivirus Exclusions**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image22.png)
+    ![](media/media/image24.png)
 
-12. On the **Device restrictions** blade, scroll down and
-    expand **Microsoft Defender Antivirus**.
+14. Under **Microsoft Defender Antivirus Exclusions**, provide the below details and click the **Next** button:
 
-![A screenshot of a computer Description automatically
-generated](media/media/image23.png)
+    - Files and folders box: **C:\DevProjects**
+    - Processes box: **DevBuild.exe**
 
-13. Under **Microsoft Defender Antivirus,** scroll down and
-    expand **Microsoft Defender Antivirus Exclusions**.
+    ![](media/media/image25.png)
 
-![](media/media/image24.png)
+15. On the **Assignments** tab, click the **Next** button.
 
-14. Under **Microsoft Defender Antivirus Exclusions** provide the below
-    details and click on the **Next** button:
+    ![](media/media/image26.png)
 
-- Files and folders box - !!**C:\DevProjects**!!
+16. On the **Applicability Rules** tab, click the **Next** button.
 
-- Processes box - !!**DevBuild.exe**!!
+    ![](media/media/image27.png)
 
-![](media/media/image25.png)
+17. On the **Review + create** tab, click the **Create** button.
 
-15. In the **Assignments** tab, click on the **Next** button.
+    ![](media/media/image28.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image26.png)
+18. The Configuration profile should now be listed.
 
-16. In the **Applicability Rules** tab, click on the **Next** button.
+    ![](media/media/image29.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image27.png)
+### Task 3: Create the Contoso Developer device group
 
-17. In the **Review + create** tab, click on the **Create** button.
+1. In the Microsoft Intune admin center, in the navigation pane, select **Groups**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image28.png)
+    ![](media/media/image30.png)
 
-18. The Configuration profile should be listed now.
+2. On the **Groups | All groups** blade, select **New group**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image29.png)
+    ![](media/media/image31.png)
 
-**Task 3: Create the Contoso Developer device group**
+3. On the **New Group** blade, enter the following information:
 
-1.  In the Microsoft Intune admin center, in the navigation pane,
-    select **Groups**.
+    - Group type: **Security**
+    - Group name: **Contoso Developer devices**
+    - Group description: **All Windows devices in Contoso Developer department**
+    - Membership type: **Assigned**
 
-![A screenshot of a computer Description automatically
-generated](media/media/image30.png)
+4. Under **Members**, select **No members selected**.
 
-2.  On the **Groups | All groups** blade, select **New group**.
+    ![](media/media/image32.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image31.png)
+5. On the **Add members** blade, in the **Search** box, type **Sea**. Select **SEA-WS1** and then choose **Select**.
 
-3.  On the **New Group** blade, enter the following information:
+    ![](media/media/image33.png)
 
-- Group type: **Security**
+6. On the **New Group** blade, select **Create**.
 
-- Group name: !!Contoso Developer devices!!
+    ![](media/media/image34.png)
 
-- Group description: !!All Windows devices in Contoso Developer
-  department!!
+7. On the **Groups | All groups** blade, verify that the **Contoso Developer devices** group is displayed.
 
-- Membership type: **Assigned**
+    ![](media/media/image35.png)
 
-4.  Under **Members**, select **No members selected**.
+### Task 4: Create a dynamic Microsoft Entra device group
 
-![](media/media/image32.png)
+1. On the **Groups | All groups** blade, in the details pane, select **New group**.
 
-5.  On the **Add members** blade, in the **Search** box type !!Sea!! .
-    Select **SEA-WS1** and then choose **Select**.
+    ![](media/media/image36.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image33.png)
+2. On the **New Group** blade, provide the following values:
 
-6.  On the **New Group** blade, select **Create**.
+    - Group type: **Security**
+    - Group name: **Windows Devices**
+    - Membership type: **Dynamic Device**
 
-![](media/media/image34.png)
+3. Under the **Dynamic Device Members** section, select **Add dynamic query**.
 
-7.  On the **Groups | All groups** blade, verify that the **Contoso
-    developer devices** group is displayed.
+    ![](media/media/image37.png)
 
-![](media/media/image35.png)
+4. On the **Dynamic membership rules** blade, in the **Rule syntax** section, select **Edit**.
 
-**Task 4: Create a dynamic Azure AD device group**
+    ![](media/media/image38.png)
 
-1.  On the **Groups | All Groups** blade, on the details pane,
-    select **New group**.
+5. In the **Edit rule syntax** text box, add the following simple membership rule and select **OK**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image36.png)
+    ```text
+    (device.deviceOSType -contains "Windows")
+    ```
 
-2.  On the **Group** blade, provide the following values:
+    ![](media/media/image39.png)
 
-- Group type: **Security**
+6. On the **Dynamic membership rules** blade, select **Save**.
 
-- Group name: !!Windows Devices!!
+    ![](media/media/image40.png)
 
-- Membership type: **Dynamic Device**
+7. On the **New Group** page, select **Create**.
 
-3.  Under the **Dynamic Device Members** section, select **Add dynamic
-    query**.
+    ![](media/media/image41.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image37.png)
+### Task 5: Assign a Configuration profile to Windows devices
 
-4.  On the **Dynamic membership rules** blade, in the **Rule
-    syntax** section, select **Edit**.
+1. While on the **Microsoft Intune admin center** page, select **Devices** from the navigation bar.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image38.png)
+    ![](media/media/image42.png)
 
-5.  In the **Edit rule syntax** text box, add the following simple
-    membership rule and select **OK**.
+2. On the **Devices | Overview** page, select **Windows** as shown in the below image.
 
-!!**(device.deviceOSType -contains "Windows")**!!
+    ![](media/media/image43.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image39.png)
+3. On the **Windows | Windows devices** page, navigate and click on **Configuration profiles**.
 
-6.  On the **Dynamic membership rules** blade, select **Save**.
+    ![](media/media/image44.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image40.png)
+4. On the **Devices | Configuration profiles** blade, in the details pane, select the **Contoso Developer - standard** profile.
 
-7.  On the **New Group** page, select **Create**.
+    ![](media/media/image45.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image41.png)
+5. On the **Contoso Developer - standard** blade, scroll down to the **Assignments** section, and select **Edit**.
 
-**Task 5: Assign a Configuration profile to Windows devices**
+    ![](media/media/image46.png)
 
-1.  While on the **Microsoft Intune admin center** page,
-    select **Devices** from the navigation bar.
+6. On the **Assignments** page, under **Included groups**, select **Add groups**.
 
-![](media/media/image42.png)
+    ![](media/media/image47.png)
 
-2.  On the **Devices | Overview** page, select **Windows** as shown in
-    the below image.
+7. On the **Select groups to include** blade, in the **Search** box, type and select **Contoso Developer devices** and then click the **Select** button.
 
-![](media/media/image43.png)
+    ![](media/media/image48.png)
 
-3.  On the **Windows | Windows devices** page, navigate and click on
-    **Configuration profiles**.
+8. Back on the **Device restrictions** blade, select **Review + save**, then select **Save**.
 
-![](media/media/image44.png)
+    ![](media/media/image49.png)
 
-4.  On the **Devices | Configuration profiles** blade, in the details
-    pane, select the **Contoso Developer – standard** profile.
+    ![](media/media/image50.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image45.png)
+### Task 6: Verify that the Configuration profile is applied
 
-5.  On the **Contoso Developer – standard** blade, scroll down to
-    the **Assignments** section, and select **Edit**.
+1. Switch to **SEA-WS1**. Sign in using Cindy White's account:
 
-![A screenshot of a computer Description automatically
-generated](media/media/image46.png)
+    - Username: **Cindy@M365xXXXXXXX.onmicrosoft.com**
+    - Password: **P@55w.rd1234**
 
-6.  On the Assignments page, under **Included groups** select **Add
-    groups**.
+2. On the taskbar, select **Start** and then select **Settings**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image47.png)
+    ![](media/media/image2.png)
 
-7.  On the **Select groups to include** blade, in the **Search** box,
-    type and select !!**Contoso Developer devices**!!  and then click on
-    the **Select** button.
+3. In the **Settings** window, select **Accounts**. On the Accounts page, select **Access work or school**.
 
-![](media/media/image48.png)
+    ![](media/media/image51.png)
 
-14. Back on the **Device restrictions** blade, select **Review + save**,
-    then select **Save**.
+4. Click the dropdown beside **Connected to Contoso's Azure AD** and select the **Info** button.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image49.png)
+    ![](media/media/image52.png)
 
-![](media/media/image50.png)
+5. On the **Managed by Contoso** page, scroll down and then, under **Device sync status**, select **Sync**. Wait for the synchronization to complete.
 
-**Task 6: Verify that the Configuration profile is applied**
+    ![](media/media/image53.png)
 
-1.  Switch
-    to *[SEA-WS1](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10).* Login
-    using Cindy White’s account.
+    ![](media/media/image54.png)
 
-- Username - !!**Cindy@M365xXXXXXXX.onmicrosoft.com**!!
+6. Close the **Settings** app.
 
-- Password – !!**P@55w.rd1234**!!
+    > **Note:** The sync may take up to 15 minutes before the profile is applied to the Windows 11 device. Signing out or restarting the device can accelerate this process.
 
-2.  On the taskbar, select **Start** and then select **Settings**.
+7. On **SEA-WS1**, select **Start** again and then select **Settings**. Verify that the **Gaming** setting has been removed.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image2.png)
+    ![](media/media/image2.png)
 
-3.  In the **Settings** window, select **Accounts**. On the Accounts
-    page, select **Access work or school**.
+    ![](media/media/image55.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image51.png)
+8. Select **Privacy & security** and notice that many of the privacy settings are now hidden.
 
-4.  Click on the dropdown beside **Connected to Contoso’s Azure AD** and
-    select **Info** button.
+    ![](media/media/image56.png)
 
-![](media/media/image52.png)
+9. Select the **Personalization** setting and then select **Start**. Verify that **Show recently added apps** and **Show most used apps** are set to **Off** and greyed out.
 
-5.  In the **Managed by Contoso** page, scroll down and then under
-    Device sync status, select **Sync**. Wait for the synchronization to
-    complete.
+    ![](media/media/image57.png)
 
-6.  ![A screenshot of a computer Description automatically
-    generated](media/media/image53.png)
+    ![](media/media/image58.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image54.png)
+10. In the **Settings** app, select **Privacy & security**.
 
-7.  Close the **Settings** app.
+11. On the **Privacy & security** page, select **Windows Security** and then select **Open Windows Security**.
 
-> **Note**: The sync progress may take up to 15 minutes before the
-> profile is applied to the Windows 11 device. Signing out or restarting
-> the device can accelerate this process.
+    ![](media/media/image59.png)
 
-8.  On [*SEA-WS1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10),
-    select **Start** again and then select **Settings**. Verify that
-    the **Gaming** setting has been removed.
+    ![](media/media/image60.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image2.png)
+12. On the **Windows Security** page, select **Virus & threat protection**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image55.png)
+13. On the **Virus & threat protection** page, select **Manage settings** under **Virus & threat protection settings**.
 
-9.  Select **Privacy & security** and notice that many of the privacy
-    settings are now hidden.
+    ![](media/media/image9.png)
 
-![](media/media/image56.png)
+14. Scroll down to **Exclusions** and select **Add or remove exclusions**. Select **Yes** at the User Account Control message.
 
-10. Select the **Personalization** setting and then select **Start**.
-    Verify that **Show recently added apps** and **Show most used
-    apps** are set to **Off** and greyed out.
+    ![](media/media/image61.png)
 
-![](media/media/image57.png)
+    ![](media/media/image62.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image58.png)
+15. On the **Exclusions** page, verify that **C:\DevProjects** and **DevBuild.exe** are displayed.
 
-11. In the **Settings** app, select **Privacy and Security**.
+    ![](media/media/image63.png)
 
-12. On the **Privacy & Security** page, select **Windows Security** and
-    then select **Open Windows Security**.
+16. Close the **Windows Security** page and then close the **Settings** app.
 
-![](media/media/image59.png)
+**Results**: After completing this exercise, you will have successfully created and assigned a Configuration profile for a Windows 11 device.
 
-![A screenshot of a computer security Description automatically
-generated](media/media/image60.png)
+## Exercise 2: Modify an assigned Configuration profile policy
 
-13. On the **Windows Security** page, select **Virus & threat
-    protection**.
+### Scenario
 
-14. On the **Virus & threat protection** page, select **Manage
-    settings** under **Virus & threat protection settings**.
+There was an exception to Contoso's policy that specifies that members of the Developer department should not have the Privacy options blocked in Settings on their devices. This change should be implemented and tested.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image9.png)
+### Task 1: Change settings in an assigned Configuration profile
 
-15. Scroll down to **Exclusions** and select **Add or remove
-    exclusions**. Select **Yes** at the User Account Control message.
+1. Switch to **SEA-SVR1**. Switch back to the **Microsoft Intune admin center** tab, and select **Devices** from the navigation bar.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image61.png)
+    ![](media/media/image42.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image62.png)
+2. On the **Devices | Overview** page, select **Windows** as shown in the below image.
 
-16. On the **Exclusions** page, verify
-    that **C:\DevProjects** and **DevBuild.exe** are displayed.
+    ![](media/media/image43.png)
 
-![A screenshot of a computer Description automatically
-generated](media/media/image63.png)
+3. On the **Windows | Windows devices** page, navigate and click on **Configuration profiles**.
 
-17. Close the **Windows Security** page and then close
-    the **Settings** app.
+    ![](media/media/image44.png)
 
-**Results**: After completing this exercise, you will have successfully
-created and assigned a Configuration profile for a Windows 11 device.
+4. On the **Devices | Configuration profiles** blade, in the details pane, select **Contoso Developer - standard**.
 
-**Exercise 2: Modify an assigned Configuration profile policy.**
+    ![](media/media/image64.png)
 
-**Scenario**
+5. On the **Contoso Developer - standard** blade, scroll down to the **Configuration settings** section, and then select **Edit**.
 
-There was an exception to Contoso's policy that specifies that members
-of the Developer department should not have the Privacy options blocked
-in Settings on their devices. This change should be implemented and
-tested.
+    ![](media/media/image65.png)
 
-**Task 1: Change settings in an assigned Configuration profile**
+6. On the **Device restrictions** page, expand **Control Panel and Settings**.
 
-1.  Switch to **SEA-SVR1**. Switch back to **Microsoft Intune admin
-    center** tab, select **Devices** from the navigation bar.
+    ![](media/media/image66.png)
 
-![](media/media/image42.png)
+7. Next to **Privacy**, ensure that **Not configured** is selected.
 
-2.  On the **Devices | Overview** page, select **Windows** as shown in
-    the below image.
+    ![](media/media/image67.png)
 
-![](media/media/image43.png)
+8. Select **Review + save**, and then select **Save**.
 
-3.  On the **Windows | Windows devices** page, navigate and click on
-    **Configuration profiles**.
+    ![](media/media/image68.png)
 
-![](media/media/image44.png)
+### Task 2: Force device synchronization from Microsoft Intune admin center
 
-4.  On the **Devices | Configuration profiles** blade, in the details
-    pane select **Contoso Developer - standard**.
+1. On **SEA-SVR1**, in the **Microsoft Intune admin center**, select **Devices** in the navigation pane, then select **All devices** and select **SEA-WS1**.
 
-![](media/media/image64.png)
+    ![](media/media/image69.png)
 
-5.  On the **Contoso Developer - standard** blade, scroll down to
-    the **Configuration settings** section, and then select **Edit**.
+2. On the **SEA-WS1** blade, select **Sync** and, when prompted, select **Yes**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image65.png)
+    ![](media/media/image70.png)
 
-6.  On the **Device restrictions** page, expand **Control Panel and
-    Settings**.
+    > **Note:** Intune will connect to the device and synchronize all policies. This may take up to 5 minutes.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image66.png)
+### Task 3: Verify changes on SEA-WS1
 
-7.  Next to **Privacy**, ensure that **Not configured** is selected.
+1. Switch to **SEA-WS1**. On the taskbar, select **Start** and then select **Settings**.
 
-![A screenshot of a computer Description automatically
-generated](media/media/image67.png)
+    ![](media/media/image2.png)
 
-8.  Select **Review + save**, and then select **Save**.
+2. In the **Settings** app, select **Privacy & security** and verify that all the customization options are back.
 
-![](media/media/image68.png)
+    ![](media/media/image71.png)
 
-**Task 2: Force device synchronization from Microsoft Intune admin
-center**
+3. Close all open windows and sign out of **SEA-WS1**.
 
-1.  On [*SEA-SVR1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10),
-    in the **Microsoft Intune admin center**, select **Devices** in the
-    navigation pane and then select **All devices** and
-    select **SEA-WS1**.
-
-![A screenshot of a computer Description automatically
-generated](media/media/image69.png)
-
-2.  On the **SEA-WS1** blade, select **Sync** and when prompted
-    select **Yes**.
-
-![](media/media/image70.png)
-
-**Note**: Intune will connect the device and synchronize all policies.
-This may take up to 5 minutes.
-
-**Task 3: Verify changes
-On [*SEA-WS1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10)**
-
-1.  Switch
-    to [*SEA-WS1*](https://labclient.labondemand.com/Instructions/e7cc4ae1-e3d9-4c55-accc-696f537e1e17?rc=10).
-    On the taskbar, select **Start** and then select the **Settings**.
-
-![A screenshot of a computer Description automatically
-generated](media/media/image2.png)
-
-2.  In the **Settings** app, select **Privacy & security** and verify
-    that all the customization options are back.
-
-![A screenshot of a computer Description automatically
-generated](media/media/image71.png)
-
-3.  Close all open windows and sign out of **SEA-WS1**.
-
-**Results**: After completing this exercise, you will have successfully
-modified an assigned a Configuration profile, modified a Configuration
-profile, and verified the changes.
+**Results**: After completing this exercise, you will have successfully modified an assigned Configuration profile and verified the changes.
