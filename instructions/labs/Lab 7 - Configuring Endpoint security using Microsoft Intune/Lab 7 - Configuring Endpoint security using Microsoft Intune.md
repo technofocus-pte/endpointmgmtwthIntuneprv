@@ -1,252 +1,175 @@
-Lab 7 - Configuring Endpoint security using Microsoft Intune
+# Lab 7 - Configuring Endpoint security using Microsoft Intune
 
-**Summary**
+### Summary
 
-In this lab, you will create a policy to configure Microsoft Defender
-for managed devices in Microsoft Intune.
+In this lab, you will create a policy to configure Microsoft Defender for managed devices in Microsoft Intune.
 
-**Prerequisites**
+### Prerequisites
 
-To following lab(s) must be completed before this lab:
+The following lab(s) must be completed before this lab:
 
 - Lab-Manage Device Enrollment into Microsoft Intune
-
 - Lab-Enrolling devices into Microsoft Intune
+- Lab-Create and Deploy Configuration Profiles
 
-- Lab -Creating and Deploying Configuration Profiles
+### Scenario
 
-**Scenario**
+You've been asked to ensure that the Contoso Developers group has Microsoft Defender correctly configured. It's been requested that:
 
-You've been asked to ensure that the Contoso Developers Group have
-Microsoft Defender correctly configured. It's been requested that:
-
-- Tamper protection be prevented.
-
-- Hide the Account protection, App and browser control, Device security,
-  Device performance and health, and Family options areas in the Windows
-  Security app
-
+- Tamper protection be enabled.
+- The Account protection, App and browser control, Device security, Device performance and health, and Family options areas be hidden in the Windows Security app.
 - Company name and phone number must be added.
+- Real-time protection, remediation, and scan settings are also to be configured.
 
-- Real-time protection, Remediation, and scan settings are also to be
-  configured.
+Settings will be verified by testing on an enrolled device, SEA-WS1, and a non-enrolled device, SEA-CL1.
 
-Settings will be verified by testing on an enrolled device, SEA-WS1 and
-a non-enrolled device, SEA-CL1.
+### Task 1: Configure Windows Security Experience in Intune
 
-Task 1: Configure Windows Security Experience in Intune
+1. Switch to **SEA-SVR1** and sign in as **Contoso\Administrator** with the password **Pa55w.rd**.
 
-1.  Switch and sign in
-    to [***SEA-SVR1***](urn:gd:lg:a:select-vm) as !!**[Contoso\Administrator](urn:gd:lg:a:send-vm-keys)!!** with
-    the password !!**[Pa55w.rd](urn:gd:lg:a:send-vm-keys)!!**
+2. On the taskbar, select **Microsoft Edge**.
 
-2.  On the taskbar, select **Microsoft Edge**.
+3. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**.
 
-3.  In Microsoft Edge, type !!**https://Intune.microsoft.com!!** in the
-    address bar, and then press **Enter**.
+4. Sign in as the Office 365 Tenant Admin.
 
-4.  Sign in as Office 365 Tenant Admin.
+    ![](media/media/image1.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image1.png)
+5. From the navigation pane, select **Endpoint security**, then select **Antivirus**.
 
-5.  From the navigation pane select **Endpoint security**, then
-    select **Antivirus**.
+    ![](media/media/image2.png)
 
-> ![](media/media/image2.png)
+6. On the **Endpoint security | Antivirus** pane, select **+ Create Policy**.
 
-6.  On the **Endpoint security |Antivirus** pane, select **+ Create
-    Policy**.
+    ![](media/media/image3.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image3.png)
+7. In the **Create a profile** pane, for **Platform**, select **Windows**. In the **Profile** list, select **Windows Security experience**. Then select **Create**.
 
-7.  In the **Create a profile** pane, for **Platform**,
-    select **Windows,** In the **Profile** list, select **Windows
-    Security experience**. Then select **Create**.
+    ![](media/media/image4.png)
 
-> ![](media/media/image4.png)
+8. On the **Basics** tab, in the **Name** field, enter **Windows Security Settings**. Select **Next**.
 
-8.  On the Basics tab, in the **Name** field, enter !!**[Windows
-    Security Settings]!!**. Select **Next**.
+    ![](media/media/image5.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image5.png)
+9. Under **Defender**, configure the following setting:
 
-9.  Under **Defender**, configure the following settings:
+    - TamperProtection (Device): **On**
 
-    - TamperProtection (Device): **On**
+    ![](media/media/image6.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image6.png)
+10. Under **Windows Defender Security Center**, configure the following settings:
 
-10. Under **Windows Defender Security Center**, configure the following
-    settings:
+    - Disable Account Protection UI: **Enable**
+    - Disable App Browser UI: **Enable**
+    - Disable Device Security UI: **Enable**
+    - Disable Family UI: **Enable**
+    - Disable Health UI: **Enable**
 
-    - Disable Account Protection UI: **Enable**
+    ![](media/media/image7.png)
 
-    - Disable App Browser UI: **Enable**
+11. Next to **Enable Customized Toasts**, select **Enable**.
 
-    - Disable Device Security UI: **Enable**
+12. In the **Company name** field, select **Configured**, and then enter **Contoso IT**.
 
-    - Disable Family UI: **Enable**
+13. For **Phone**, select **Configured**, enter **555-1234**, and then select **Next**.
 
-    - Disable Health UI: **Enable**
+    ![](media/media/image8.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image7.png)
+14. On the **Scope tags** page, select **Next**.
 
-11. Next to **Enable Customized Toasts** select **Enable**.
+    ![](media/media/image9.png)
 
-12. In the **Company name** field, select **Configured**, and then
-    enter !!**[Contoso IT](urn:gd:lg:a:send-vm-keys)!!**
+15. On the **Assignments** tab, under **Included groups**, select **Add groups**. Choose the **Contoso Developer devices** group, click **Select** and then select **Next**.
 
-13. For **Phone**, select **Configured** and then
-    enter !!**[555-1234](urn:gd:lg:a:send-vm-keys)!!** and then
-    select **Next**.
+    ![](media/media/image10.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image8.png)
+16. On the **Review + create** tab, review the information and select **Save**.
 
-14. On the **Scope tags** page, select **Next**.
+    ![](media/media/image11.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image9.png)
+### Task 2: Configure Microsoft Defender Antivirus policy in Intune
 
-15. On the **Assignments** tab, under **Included groups** select **Add
-    groups**. Choose the **Contoso Developer Devices** group,
-    click **Select** and then select **Next**.
+1. On the **Endpoint security | Antivirus** pane, select **+ Create Policy**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image10.png)
+    ![](media/media/image12.png)
 
-16. On the **Review + create** tab, review the information and
-    select **Save**.
+2. In the **Create a profile** pane, for **Platform**, select **Windows**. In the **Profile** list, select **Microsoft Defender Antivirus**, then select **Create**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image11.png)
+    ![](media/media/image13.png)
 
-Task 2: Configure Microsoft Defender Antivirus policy in Intune
+3. On the **Basics** tab, in the **Name** field, enter **Microsoft Defender Antivirus Settings**. Select **Next**.
 
-1.  On the **Endpoint security |Antivirus** pane, select **Create
-    Policy**.
+    ![](media/media/image14.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image12.png)
+4. On the **Configuration settings** tab, configure the following settings:
 
-2.  In the **Create a profile** pane, for **Platform**,
-    select **Windows.** In the **Profile** list, select **Microsoft
-    Defender Antivirus**, then select **Create**.
+    - Allow Intrusion Prevention System: **Allowed**
+    - Allow scanning of all downloaded files and attachments: **Allowed**
+    - Allow Realtime Monitoring: **Allowed**
 
-> ![](media/media/image13.png)
+    ![](media/media/image15.png)
 
-3.  On the **Basics** tab, in the **Name** field, enter !!**[Microsoft
-    Defender Antivirus Settings](urn:gd:lg:a:send-vm-keys)!!**.
-    Select **Next**.
+    - Check For Signatures Before Running Scan: **Enabled**
+    - Days to Retain Cleaned Malware: **60**
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image14.png)
+    ![](media/media/image16.png)
 
-4.  On the **Configuration settings** tab, configure the following
-    settings:
+    - Schedule Quick Scan Time: **60** (represents 1:00 AM)
 
-    - Allow Intrusion Prevention System: **Allowed**
+    ![](media/media/image17.png)
 
-    - Allow scanning of all downloaded files and
-      attachments: **Allowed**
+    - Submit Samples Consent: **Send safe samples automatically**
 
-    - Allow Realtime Monitoring: **Allowed**
+    ![](media/media/image18.png)
 
-> ![](media/media/image15.png)
+5. On the **Configuration settings** tab, select **Next**.
 
-- Check For Signatures Before Running Scan: **Enabled**
+6. On the **Scope tags** page, select **Next**.
 
-- Days to Retain Cleaned Malware: !!**[60](urn:gd:lg:a:send-vm-keys)!!**
+    ![](media/media/image19.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image16.png)
+7. On the **Assignments** tab, under **Included groups**, select **Add groups**.
 
-- Schedule Quick Scan
-  Time: !!**[60](urn:gd:lg:a:send-vm-keys)!!** (represents 1:00AM)
+8. Choose the **Contoso Developer devices** group, choose **Select** and then select **Next**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image17.png)
+    ![](media/media/image20.png)
 
-- Submit samples consent: **Send safe samples automatically**
+9. On the **Review + create** tab, review the information and select **Save**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image18.png)
+    ![](media/media/image21.png)
 
-5.  On the **Configuration settings** tab, select **Next**.
+### Task 3: Sync the managed devices
 
-6.  On the **Scope tags** page, select **Next**.
+1. In the **Microsoft Intune admin center**, select **Devices** and then select **All devices**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image19.png)
+2. On the **Devices | All devices** pane, select **SEA-WS1**. On the **SEA-WS1** blade, select **Sync** on the toolbar, and then select **Yes**.
 
-7.  On the **Assignments** tab, under **Included groups** select **Add
-    groups**.
+    ![](media/media/image22.png)
 
-8.  Choose the **Contoso Developer Devices** group and then
-    choose **Select** and then select **Next**.
+    > **Note:** Wait 3-4 minutes for the sync to complete.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image20.png)
+3. Close Microsoft Edge.
 
-9.  On the **Review + create** tab, review the information and
-    select **Save**.
+### Task 4: Verify the configuration
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image21.png)
+1. On your lab VM, select **Start**, type **Windows Security**, and then under the Windows Security icon select **Open**.
 
-Task 3: Sync the managed devices
+    ![](media/media/image23.png)
 
-1.  In the **Microsoft Intune admin center**, select **Devices** and
-    then select **All devices**.
+2. Notice the security options that are displayed.
 
-2.  On the **Devices | All devices** pane, select **SEA-WS1** and then
-    on the **SEA-WS1** blade, select **Sync** on the toolbar, and then
-    select **Yes**.
+    ![](media/media/image24.png)
 
-> ![](media/media/image22.png)
->
-> Wait for 3-4 minutes for the sync to complete.
+3. Switch to **SEA-WS1**, and sign in as **Cindy@M365xXXXXXXX.onmicrosoft.com** with the password **P@55w.rd1234**.
 
-3.  Close Microsoft Edge.
+4. Select **Start**, type **Windows Security**, and then under the Windows Security icon select **Open**.
 
-Task 4: Verify the configuration
+    ![](media/media/image25.png)
 
-1.  On your local PC select **Start**, type !!**[Windows
-    Security](urn:gd:lg:a:send-vm-keys)!!**, and then under the Windows
-    Security icon select **Open**.
+    Notice that the restricted areas configured in the Intune policy are not displayed. **SEA-WS1** is enrolled in Intune, which has applied the security settings.
 
-> ![](media/media/image23.png)
+    ![](media/media/image26.png)
 
-2.  Notice that the following security options.
+5. Close **Windows Security** and sign out of **SEA-WS1**.
 
-> ![A screenshot of a computer security system Description automatically
-> generated](media/media/image24.png)
-
-3.  Switch to [***SEA-WS1***](urn:gd:lg:a:select-vm), and sign in as
-    **!!Cindy@M365x27131290.onmicrosoft.com!!** with Password
-    **!!P@55w.rd12345!!** .
-
-4.  Select **Start**, type !!**[Windows
-    Security](urn:gd:lg:a:send-vm-keys)!!**, and then under the Windows
-    Security icon select **Open**.
-
-> ![](media/media/image25.png)
->
-> Notice that all of the restricted areas as configured in the Intune
-> policy are not displayed. [***SEA-WS1***](urn:gd:lg:a:select-vm) is
-> enrolled in Intune, which has applied the security settings.
->
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image26.png)
-
-5.  Close **Windows Security** and sign out
-    of [***SEA-WS1***](urn:gd:lg:a:select-vm).
-
-**Results**: After completing this exercise, you will have successfully
-created and applied a policy to configure Microsoft Defender for managed
-devices in Intune.
+**Results**: After completing this exercise, you will have successfully created and applied a policy to configure Microsoft Defender for managed devices in Intune.
