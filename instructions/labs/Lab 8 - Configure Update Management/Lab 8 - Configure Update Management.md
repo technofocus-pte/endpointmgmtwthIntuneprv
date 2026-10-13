@@ -1,293 +1,224 @@
-Lab 8: Configure Update Management
+# Lab 8: Configure Update Management
 
-**Summary**
+### Summary
 
-In this lab you will configure Windows quality and feature update
-settings using Intune.
+In this lab you will configure Windows quality and feature update settings using Intune.
 
-**Prerequisites**
+### Prerequisites
 
-To following lab(s) must be completed before this lab:
+The following lab(s) must be completed before this lab:
 
-- Lab -Set up Microsoft Intune
+- Lab-Set up Microsoft Intune
+- Lab-Enrolling devices into Intune
+- Lab-Creating and Deploying Configuration Profiles
 
-- Lab -Enrolling devices into Intune
+> **Note:** You will also need a mobile phone that can receive text messages used to secure Windows Hello sign-in authentication to Microsoft Entra ID.
 
-- Lab -Creating and Deploying Configuration Profiles
+### Scenario
 
-**Note**: You will also need a mobile phone that can receive text
-messages used to secure Windows Hello sign in authentication to Azure
-AD.
+You have been asked to configure an update ring to only affect the devices that are members of the Contoso Developer devices group. This group must meet the following requirements:
 
-**Scenario**
+- Quality update deferral period (days): **15**
+- Feature update deferral period (days): **45**
+- Option to pause Windows updates: **Disable**
+- Option to check for Windows updates: **Enable**
+- Delivery optimization: Download Mode: **HTTP only, no peering (0)**
 
-You have been asked to configure an update ring to only affect the
-devices that are a member of the Contoso Developer Devices group. This
-group must meet the following requirements:
+### Task 1: Verify current update settings for a single device
 
-- Quality update deferral period (days): **15**
+1. Switch to **SEA-WS1**, and sign in as **Cindy White** with the PIN **102938**.
 
-- Feature update deferral period (days): **45**
+2. Select **Start**, and then select the **Settings** icon.
 
-- Option to pause Windows updates: **Disable**
+    ![](media/media/image1.png)
 
-- Option to check for Windows updates: **Enable**
+3. In **Settings**, select **Windows Update**.
 
-- Delivery optimization: Download Mode: **HTTP only, no peering (0)**
+    Notice that you have the option to pause updates for a specific amount of time.
 
-Task 1: Verify current update settings for a single device
+4. On the **Windows Update** page, select **Advanced options**.
 
-1.  Switch to [***SEA-WS1***](urn:gd:lg:a:select-vm), sign in as
-    as **Cindy White** with the PIN [**102938**](urn:gd:lg:a:select-vm).
+    ![](media/media/image2.png)
 
-2.  Select **Start**, and then select the **Settings** icon.
+5. On the **Advanced options** page, select **Delivery Optimization**.
 
-> ![](media/media/image1.png)
+    ![](media/media/image3.png)
 
-3.  In **Settings**, select **Windows Update**.
+6. On the **Delivery Optimization** page, verify that the **Allow downloads from other PCs** option is enabled.
 
-> Notice that you have the option to pause updates for a specific amount
-> of time.
+7. Select **Devices on the internet and my local network**.
 
-4.  On the **Windows Update** page, select **Advanced options**.
+    ![](media/media/image4.png)
 
-> ![](media/media/image2.png)
+8. In **Settings**, select **Windows Update**.
 
-5.  On the **Advanced options** page select **Delivery Optimization**.
+    ![](media/media/image5.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image3.png)
+9. Select **Advanced options**, and then select **Configured update policies**.
 
-6.  On the **Delivery Optimization** page, verify that the **Allow
-    downloads from other PCs** option is enabled.
+    ![](media/media/image6.png)
 
-7.  Select **Devices on the internet and my local network**.
+    Take note that no update policies are set on the device.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image4.png)
+    ![](media/media/image7.png)
 
-8.  In **Settings**, select **Windows Update**.
+10. In the navigation pane, select **Windows Update**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image5.png)
+### Task 2: Review applied settings
 
-9.  Select **Advanced options**, and then select **Configured update
-    policies**.
+1. On the **Windows Update** page, select **Update history**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image6.png)
->
-> Take note that no update polices are set on the device.
->
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image7.png)
+    ![](media/media/image8.png)
 
-10. In the navigation pane, select **Windows Update**.
+2. Review the updates listed, and then select **Uninstall updates**.
 
-Task 2: Review applied settings
+    ![](media/media/image9.png)
 
-1.  On the **Windows Update** page, select **Update history**.
+3. Review the updates listed in **Installed Updates**. Close **Installed Updates**.
 
-> ![A screenshot of a computer update Description automatically
-> generated](media/media/image8.png)
+    ![](media/media/image10.png)
 
-2.  Review the updates listed, and then select **Uninstall updates**.
+4. Close the **Settings** app.
 
-> ![A screenshot of a computer update Description automatically
-> generated](media/media/image9.png)
+### Task 3: Configure update settings by using Intune
 
-3.  Review the updates listed in **Installed Updates**. Close Installed
-    Updates.
+1. Switch to **SEA-SVR1** and sign in as **Contoso\Administrator** with the password **Pa55w.rd**.
 
-> ![](media/media/image10.png)
+2. On the taskbar, select **Microsoft Edge**.
 
-4.  Close the **Settings** app.
+3. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**.
 
-Task 3: Configure update settings by using Intune
+4. Sign in as **admin@M365xXXXXXXX.onmicrosoft.com** with the tenant admin password.
 
-1.  Switch to [***SEA-SVR1***](urn:gd:lg:a:send-vm-keys) and sign in
-    as [**Contoso\Administrator**](urn:gd:lg:a:send-vm-keys) with the
-    password of [**Pa55w.rd**](urn:gd:lg:a:send-vm-keys).
+5. In the navigation pane, select **Devices** and then, under **Manage updates**, select **Windows updates**.
 
-2.  On the taskbar, select **Microsoft Edge**.
+    ![](media/media/image11.png)
 
-3.  In Microsoft Edge,
-    type [**https://intune.microsoft.com**](urn:gd:lg:a:send-vm-keys) in
-    the address bar, and then press **Enter**.
+6. On the **Devices | Update rings** blade, select **Create profile**.
 
-4.  Sign in
-    as [**admin@M365x19242953.onmicrosoft.com**](urn:gd:lg:a:send-vm-keys) with
-    the password.
+    ![](media/media/image12.png)
 
-5.  In the navigation pane, select **Devices** and then under **Manage
-    updates** select **Windows Updates**.
+7. On the **Basics** blade, enter the following information, and then select **Next**:
 
-> ![](media/media/image11.png)
+    - Name: **Contoso Updates - standard**
+    - Description: **Standard Windows updates configuration**
 
-6.  On the **Devices | Update rings**  blade select **Create profile**.
+    ![](media/media/image13.png)
 
-> ![](media/media/image12.png)
+8. On the **Update ring settings** blade, enter the following information, and then select **Next**:
 
-7.  In the **Basics** blade, enter the following information, and then
-    select **Next**:
+    - Quality update deferral period (days): **15**
+    - Feature update deferral period (days): **45**
+    - Option to pause Windows updates: **Disable**
+    - Option to check for Windows updates: **Enable**
 
-    - Name: !\![**Contoso Updates -
-      standard**](urn:gd:lg:a:send-vm-keys)!!
+    ![](media/media/image14.png)
 
-    - Description: !\![**Standard Windows updates
-      configuration**](urn:gd:lg:a:select-vm)!!
+9. On the **Assignments** blade, under **Included groups**, select **Add groups**.
 
-> ![](media/media/image13.png)
+    ![](media/media/image15.png)
 
-8.  In the **Update ring settings** blade, enter the following
-    information, and then select **Next**:
+10. On the **Select groups to include** blade, in the **Search** box, select **Contoso Developer devices** and then click **Select**.
 
-    - Quality update deferral period
-      (days): [**15**](urn:gd:lg:a:send-vm-keys)
+    ![](media/media/image16.png)
 
-    - Feature update deferral period
-      (days): [**45**](urn:gd:lg:a:send-vm-keys)
+11. Select **Next** and, on the **Review + create** blade, select **Create**.
 
-    - Option to pause Windows updates: **Disable**
+    ![](media/media/image17.png)
 
-    - Option to check for Windows updates: **Enable**
+    ![](media/media/image18.png)
 
-> ![](media/media/image14.png)
+12. From the navigation bar, under **Manage devices**, select **Configuration**.
 
-9.  On the **Assignments** blade, under **Included groups** select **Add
-    groups**.
+    ![](media/media/image19.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image15.png)
+13. On the **Devices | Configuration** blade, in the details pane, select **Create policy**.
 
-10. On the **Select groups to include** blade, in the **Search** box,
-    select **Contoso Developer devices** and then click **Select**.
+    ![](media/media/image20.png)
 
-> ![](media/media/image16.png)
+14. In the **Create a profile** blade, select the following options, and then select **Create**:
 
-11. Select **Next** and on the **Review + create** blade
-    select **Create**.
+    - Platform: **Windows 10 and later**
+    - Profile type: **Templates**
+    - Template name: **Delivery Optimization**
 
-> ![](media/media/image17.png)
->
-> ![](media/media/image18.png)
+    ![](media/media/image21.png)
 
-12. From the navigation bar under **Manage devices**
-    select **Configuration**.
+15. On the **Basics** blade, enter the following information, and then select **Next**:
 
-> ![](media/media/image19.png)
+    - Name: **Contoso Developer - Delivery optimization**
+    - Description: **Delivery optimization for Developer**
 
-13. On the **Devices | Configuration** blade, in the details pane,
-    select **Create policy**.
+    ![](media/media/image22.png)
 
-> ![](media/media/image20.png)
+16. On the **Configuration settings** blade, enter the following information, and then select **Next**:
 
-14. In the **Create a profile** blade, select the following options, and
-    then select **Create**:
+    - DO Download Mode: **HTTP only, no peering (0)**
 
-    - Platform: **Windows 10 and later**
+    ![](media/media/image23.png)
 
-    - Profile type: **Templates**
+17. On the **Scope tags** tab, click **Next**.
 
-    - Template name: **Delivery Optimization**
+18. On the **Assignments** blade, click on the search bar, select **Contoso Developer devices**, and then click **Next**.
 
-> ![](media/media/image21.png)
+    ![](media/media/image24.png)
 
-15. In the **Basics** blade, enter the following information, and then
-    select **Next**:
+    ![](media/media/image25.png)
 
-    - Name: !\![**Contoso Developer - Delivery
-      optimization**](urn:gd:lg:a:send-vm-keys)!!
+19. On the **Review + create** blade, select **Save**.
 
-    - Description: !\![**Delivery optimization for
-      Developer**](urn:gd:lg:a:send-vm-keys)!!
+    ![](media/media/image26.png)
 
-> ![](media/media/image22.png)
+    ![](media/media/image27.png)
 
-16. In the **Configuration settings** blade, enter the following
-    information, and then select **Next**:
+    > **Note:** A manual sync can also be triggered from the Microsoft Intune portal to ensure the new configuration is applied to SEA-WS1.
 
-    - DO Download Mode: **HTTP only, no peering (0)**
+    ![](media/media/image28.png)
 
-> ![](media/media/image23.png)
+### Task 4: Verify that the device's update settings are managed centrally
 
-17. On the **Scopes** tab click **Next**
+1. Switch to **SEA-WS1**.
 
-18. On the **Assignments** blade, click on the search bar and
-    select **Contoso Developer devices** and then click **Next**.
+2. Select **Start**, and then select the **Settings** icon.
 
-> ![](media/media/image24.png)
->
-> ![](media/media/image25.png)
+    ![](media/media/image29.png)
 
-19. On the **Review + create** blade select **Save**.
+3. In the **Settings** app, select **Accounts** and then select **Access work or school**.
 
-> ![](media/media/image26.png)
->
-> ![](media/media/image27.png)
->
-> **Note:** A manual sync can also be triggered from the Microsoft
-> Intune portal to ensure the new configuration is applied to SEA‑WS1.
->
-> **  
-> **![](media/media/image28.png)
+    ![](media/media/image30.png)
 
-Task 4: Verify that the device’s update settings are managed centrally
+4. In the **Access work or school** section, select **Connected to Contoso's Azure AD** and then select **Info**.
 
-1.  Switch to [***SEA-WS1***](https://intune.microsoft.com).
+    ![](media/media/image31.png)
 
-2.  Select **Start**, and then select the **Settings** icon.
+5. In the **Areas managed by Contoso** dialog box, select **Sync**. Wait for the synchronization to complete.
 
-> ![](media/media/image29.png)
+    ![](media/media/image32.png)
 
-3.  In the **Settings** app, select **Accounts** and then
-    select **Access work or school**.
+6. In the **Settings** app, select **Windows Update**. Notice that you are not able to pause updates.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image30.png)
+    ![](media/media/image33.png)
 
-4.  In the **Access work or school** section, select the **Connected to
-    Contoso's Azure AD** link and then select **Info**.
+7. Select **Advanced options**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image31.png)
+    ![](media/media/image34.png)
 
-5.  In the **Areas Managed by Contoso** dialog box, select **Sync**.
-    Wait for the synchronization to complete.
+8. Select **Delivery Optimization**.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image32.png)
+    ![](media/media/image35.png)
 
-6.  In the **Settings** app, select **Windows Update**. Notice that you
-    are not able to pause updates.
+    Notice that **Allow downloads from other PCs** is not available.
 
-> ![](media/media/image33.png)
+    ![](media/media/image36.png)
 
-7.  Select **Advanced options**.
+9. In the **Settings** app, select **Windows Update**, select **Advanced options**, and then select **Configured update policies**.
 
-> ![](media/media/image34.png)
+    ![](media/media/image37.png)
 
-8.  Select **Delivery Optimization**.
+    Take note of all the policies set on the device.
 
-> ![A screenshot of a computer Description automatically
-> generated](media/media/image35.png)
->
-> Notice that **Allow downloads from other PCs** is not available.
->
-> ![](media/media/image36.png)
-
-9.  In the **Settings** app, select **Windows Update**,
-    select **Advanced options**, and then select **Configured update
-    policies**.
-
-> ![](media/media/image37.png)
->
-> Take note of all the policies set on the device.
->
-> ![](media/media/image38.png)
+    ![](media/media/image38.png)
 
 10. Close all open apps and windows.
 
-> **Note**: The lab environment is configured to prevent Windows Updates
-> from being applied to avoid delays and unintentional impact during the
-> labs.
+> **Note:** The lab environment is configured to prevent Windows Updates from being applied to avoid delays and unintentional impact during the labs.
